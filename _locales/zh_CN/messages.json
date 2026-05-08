@@ -223,5 +223,62 @@
     },
     "active_mode": {
         "message": "激活"
+    },
+    "usage": {
+        "message": "使用"
+    },
+    "usage_overview_title": {
+        "message": "概览"
+    },
+    "usage_overview_body": {
+        "message": "Proxy Helper 独立于系统代理设置 Chrome 的代理。每个配置(profile)保存一组完整的代理设置，在弹窗中点击任一配置即可激活。"
+    },
+    "usage_profiles_title": {
+        "message": "配置(Profile)"
+    },
+    "usage_profiles_body": {
+        "message": "为每个使用场景创建一个配置(如工作、家庭、出行)。使用本页顶部的工具栏: + New 新建, Rename / Duplicate / Delete 管理已有配置, Set Active 将所选配置应用到 Chrome。"
+    },
+    "usage_modes_title": {
+        "message": "激活模式"
+    },
+    "usage_modes_body": {
+        "message": "每个配置拥有自己的激活模式 — 配置被选中时 Chrome 使用的代理类型。激活模式标签页只显示已配置的模式。Direct、System 和 Auto Detect (WPAD) 始终可用。"
+    },
+    "usage_servers_title": {
+        "message": "服务器设置"
+    },
+    "usage_servers_body": {
+        "message": "在 General 标签页填入 HTTP、HTTPS 或 SOCKS 代理的主机与端口。SOCKS 通过单选按钮选择协议版本(SOCKS4 或 SOCKS5)。Proxy Mode 决定 Chrome 如何在多个代理之间分发请求(singleProxy 表示所有流量走同一代理)。"
+    },
+    "usage_pac_title": {
+        "message": "PAC (代理自动配置)"
+    },
+    "usage_pac_body": {
+        "message": "PAC 脚本根据 URL 决定使用哪个代理。在 PAC Script 直接粘贴脚本内容，或在 PAC URL 填入托管脚本的地址。"
+    },
+    "usage_bypass_title": {
+        "message": "Bypass 列表"
+    },
+    "usage_bypass_body": {
+        "message": "不走代理的域名和 IP 范围。条目以逗号分隔。例如: <local>, 192.168.0.0/16, *.intranet.com。勾选 China List 可同时跳过 *.cn 域名。"
+    },
+    "usage_auth_title": {
+        "message": "认证"
+    },
+    "usage_auth_body": {
+        "message": "为需要基本认证的代理填写用户名和密码。注意: Chrome API 仅支持 HTTP/HTTPS 代理认证，不支持 SOCKS。"
+    },
+    "usage_shortcuts_title": {
+        "message": "快捷键"
+    },
+    "usage_shortcuts_body": {
+        "message": "Alt+P 切换到下一个配置。Alt+O 打开此选项页。可在 chrome://extensions/shortcuts 自定义快捷键。"
+    },
+    "usage_switching_title": {
+        "message": "切换配置"
+    },
+    "usage_switching_body": {
+        "message": "点击工具栏扩展图标打开弹窗，再点击任一配置即可激活，所选配置的激活模式会立即应用到 Chrome。"
     }
 }

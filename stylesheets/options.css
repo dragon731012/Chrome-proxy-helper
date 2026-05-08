@@ -196,6 +196,18 @@ body {
 }
 
 /* =============================================
+   Usage page — readable body paragraphs
+   ============================================= */
+#usage section p {
+  display: block;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  line-height: 1.65;
+  max-width: 720px;
+}
+
+/* =============================================
    Mode radios (Active Mode section)
    ============================================= */
 .mode-radios {

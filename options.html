@@ -46,6 +46,13 @@
                 </li>
             </ul>
 
+            <div class="nav-section-label" data-i18n-content="Help">Help</div>
+            <ul class="menu">
+                <li>
+                    <a href="#usage" data-i18n-content="usage">Usage</a>
+                </li>
+            </ul>
+
             <div class="nav-section-label" data-i18n-content="info">Info</div>
             <ul class="menu">
                 <li>
@@ -209,6 +216,57 @@
                             <span class="field_label" data-i18n-content="pass">Password:</span>
                             <input type="password" id="password" size="20" placeholder="••••••••"/>
                         </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- ======== Usage ======== -->
+            <div id="usage">
+                <header><h1 data-i18n-content="usage">Usage</h1></header>
+                <div class="content">
+                    <h3 data-i18n-content="usage_overview_title">Overview</h3>
+                    <section>
+                        <p data-i18n-content="usage_overview_body">Proxy Helper switches Chrome's proxy independently of the system proxy. Each profile holds a complete proxy configuration. Click a profile in the popup to activate it.</p>
+                    </section>
+
+                    <h3 data-i18n-content="usage_profiles_title">Profiles</h3>
+                    <section>
+                        <p data-i18n-content="usage_profiles_body">Create one profile per environment (Work, Home, Travel). Use the bar at the top of this page: + New to create, Rename / Duplicate / Delete to manage, Set Active to apply the selected profile to Chrome.</p>
+                    </section>
+
+                    <h3 data-i18n-content="usage_switching_title">Switching Profiles</h3>
+                    <section>
+                        <p data-i18n-content="usage_switching_body">Click the toolbar icon to open the popup, then click any profile to activate it. The profile's Active Mode is applied to Chrome immediately.</p>
+                    </section>
+
+                    <h3 data-i18n-content="usage_modes_title">Active Mode</h3>
+                    <section>
+                        <p data-i18n-content="usage_modes_body">Every profile has its own Active Mode — the proxy type Chrome uses when the profile is selected. The Active Mode tab shows only modes you have configured. Direct, System, and Auto Detect (WPAD) are always available.</p>
+                    </section>
+
+                    <h3 data-i18n-content="usage_servers_title">Server Configuration</h3>
+                    <section>
+                        <p data-i18n-content="usage_servers_body">Enter proxy host and port for HTTP, HTTPS, or SOCKS in the General tab. For SOCKS, pick the protocol version (SOCKS4 or SOCKS5). Proxy Mode controls how Chrome routes requests across proxies (singleProxy uses one proxy for all traffic).</p>
+                    </section>
+
+                    <h3 data-i18n-content="usage_pac_title">PAC (Proxy Auto-Config)</h3>
+                    <section>
+                        <p data-i18n-content="usage_pac_body">PAC scripts decide the proxy per URL. Paste a script inline under PAC Script, or point to a hosted script under PAC URL.</p>
+                    </section>
+
+                    <h3 data-i18n-content="usage_bypass_title">Bypass List</h3>
+                    <section>
+                        <p data-i18n-content="usage_bypass_body">Domains and IP ranges that should not use the proxy. Separate entries with commas. Example: &lt;local&gt;, 192.168.0.0/16, *.intranet.com. Enable China List to also bypass *.cn domains.</p>
+                    </section>
+
+                    <h3 data-i18n-content="usage_auth_title">Authentication</h3>
+                    <section>
+                        <p data-i18n-content="usage_auth_body">Username and password for proxies that require basic authentication. Note: Chrome's API supports authentication for HTTP/HTTPS proxies only, not SOCKS.</p>
+                    </section>
+
+                    <h3 data-i18n-content="usage_shortcuts_title">Keyboard Shortcuts</h3>
+                    <section>
+                        <p data-i18n-content="usage_shortcuts_body">Alt+P cycles to the next profile. Alt+O opens this options page. Customize the shortcuts at chrome://extensions/shortcuts.</p>
                     </section>
                 </div>
             </div>
