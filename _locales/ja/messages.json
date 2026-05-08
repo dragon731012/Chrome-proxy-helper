@@ -171,60 +171,60 @@
         "message": "Active Mode"
     },
     "usage": {
-        "message": "Usage"
+        "message": "使い方"
     },
     "usage_overview_title": {
-        "message": "Overview"
+        "message": "概要"
     },
     "usage_overview_body": {
-        "message": "Proxy Helper switches Chrome's proxy independently of the system proxy. Each profile holds a complete proxy configuration. Click a profile in the popup to activate it."
+        "message": "Proxy Helper は、システムのプロキシ設定とは独立して Chrome のプロキシを切り替えます。各プロファイルが完全なプロキシ設定を保持します。ポップアップでプロファイルをクリックすると有効になります。"
     },
     "usage_profiles_title": {
-        "message": "Profiles"
+        "message": "プロファイル"
     },
     "usage_profiles_body": {
-        "message": "Create one profile per environment (Work, Home, Travel). Use the bar at the top of this page: + New to create, Rename / Duplicate / Delete to manage, Set Active to apply the selected profile to Chrome."
+        "message": "環境ごとに 1 つのプロファイルを作成します (仕事、自宅、出張など)。このページ上部のバーから操作します: + New で新規作成、Rename / Duplicate / Delete で管理、Set Active で選択したプロファイルを Chrome に適用します。"
     },
     "usage_modes_title": {
-        "message": "Active Mode"
+        "message": "有効モード"
     },
     "usage_modes_body": {
-        "message": "Every profile has its own Active Mode — the proxy type Chrome uses when the profile is selected. The Active Mode tab shows only modes you have configured. Direct, System, and Auto Detect (WPAD) are always available."
+        "message": "各プロファイルには独自の有効モードがあります — プロファイル選択時に Chrome が使用するプロキシの種類です。有効モードタブには設定済みのモードのみが表示されます。Direct、System、Auto Detect (WPAD) は常に利用可能です。"
     },
     "usage_servers_title": {
-        "message": "Server Configuration"
+        "message": "サーバー設定"
     },
     "usage_servers_body": {
-        "message": "Enter proxy host and port for HTTP, HTTPS, or SOCKS in the General tab. For SOCKS, pick the protocol version (SOCKS4 or SOCKS5). Proxy Mode controls how Chrome routes requests across proxies (singleProxy uses one proxy for all traffic)."
+        "message": "General タブで HTTP、HTTPS、または SOCKS のプロキシホストとポートを入力します。SOCKS の場合はプロトコルバージョン (SOCKS4 または SOCKS5) を選択してください。Proxy Mode は Chrome が複数のプロキシにリクエストをどう振り分けるかを制御します (singleProxy はすべての通信に同じプロキシを使用)。"
     },
     "usage_pac_title": {
-        "message": "PAC (Proxy Auto-Config)"
+        "message": "PAC (プロキシ自動構成)"
     },
     "usage_pac_body": {
-        "message": "PAC scripts decide the proxy per URL. Paste a script inline under PAC Script, or point to a hosted script under PAC URL."
+        "message": "PAC スクリプトは URL ごとに使用するプロキシを決定します。PAC Script にスクリプト本文を直接貼り付けるか、PAC URL に外部スクリプトのアドレスを指定します。"
     },
     "usage_bypass_title": {
-        "message": "Bypass List"
+        "message": "バイパスリスト"
     },
     "usage_bypass_body": {
-        "message": "Domains and IP ranges that should not use the proxy. Separate entries with commas. Example: <local>, 192.168.0.0/16, *.intranet.com. Enable China List to also bypass *.cn domains."
+        "message": "プロキシを経由させないドメインと IP 範囲です。エントリはカンマで区切ります。例: <local>, 192.168.0.0/16, *.intranet.com。China List を有効にすると *.cn ドメインもバイパスされます。"
     },
     "usage_auth_title": {
-        "message": "Authentication"
+        "message": "認証"
     },
     "usage_auth_body": {
-        "message": "Username and password for proxies that require basic authentication. Note: Chrome's API supports authentication for HTTP/HTTPS proxies only, not SOCKS."
+        "message": "基本認証を必要とするプロキシのユーザー名とパスワードです。注意: Chrome API は HTTP/HTTPS プロキシの認証のみをサポートし、SOCKS はサポートしません。"
     },
     "usage_shortcuts_title": {
-        "message": "Keyboard Shortcuts"
+        "message": "キーボードショートカット"
     },
     "usage_shortcuts_body": {
-        "message": "Alt+P cycles to the next profile. Alt+O opens this options page. Customize the shortcuts at chrome://extensions/shortcuts."
+        "message": "Alt+P で次のプロファイルに切り替えます。Alt+O でこのオプションページを開きます。ショートカットは chrome://extensions/shortcuts でカスタマイズできます。"
     },
     "usage_switching_title": {
-        "message": "Switching Profiles"
+        "message": "プロファイルの切り替え"
     },
     "usage_switching_body": {
-        "message": "Click the toolbar icon to open the popup, then click any profile to activate it. The profile's Active Mode is applied to Chrome immediately."
+        "message": "ツールバーのアイコンをクリックしてポップアップを開き、任意のプロファイルをクリックすると有効になります。プロファイルの有効モードは即座に Chrome に適用されます。"
     }
 }

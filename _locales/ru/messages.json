@@ -228,60 +228,60 @@
         "message": "Active Mode"
     },
     "usage": {
-        "message": "Usage"
+        "message": "Использование"
     },
     "usage_overview_title": {
-        "message": "Overview"
+        "message": "Обзор"
     },
     "usage_overview_body": {
-        "message": "Proxy Helper switches Chrome's proxy independently of the system proxy. Each profile holds a complete proxy configuration. Click a profile in the popup to activate it."
+        "message": "Помощник прокси переключает прокси Chrome независимо от системного прокси. Каждый профиль хранит полную конфигурацию прокси. Нажмите на профиль во всплывающем окне, чтобы активировать его."
     },
     "usage_profiles_title": {
-        "message": "Profiles"
+        "message": "Профили"
     },
     "usage_profiles_body": {
-        "message": "Create one profile per environment (Work, Home, Travel). Use the bar at the top of this page: + New to create, Rename / Duplicate / Delete to manage, Set Active to apply the selected profile to Chrome."
+        "message": "Создайте по одному профилю для каждого окружения (работа, дом, поездки). Используйте панель в верхней части этой страницы: + New — создать, Rename / Duplicate / Delete — управлять, Set Active — применить выбранный профиль к Chrome."
     },
     "usage_modes_title": {
-        "message": "Active Mode"
+        "message": "Активный режим"
     },
     "usage_modes_body": {
-        "message": "Every profile has its own Active Mode — the proxy type Chrome uses when the profile is selected. The Active Mode tab shows only modes you have configured. Direct, System, and Auto Detect (WPAD) are always available."
+        "message": "У каждого профиля есть свой активный режим — тип прокси, который Chrome использует при выборе профиля. Вкладка «Активный режим» показывает только настроенные режимы. Direct, System и Auto Detect (WPAD) доступны всегда."
     },
     "usage_servers_title": {
-        "message": "Server Configuration"
+        "message": "Настройка серверов"
     },
     "usage_servers_body": {
-        "message": "Enter proxy host and port for HTTP, HTTPS, or SOCKS in the General tab. For SOCKS, pick the protocol version (SOCKS4 or SOCKS5). Proxy Mode controls how Chrome routes requests across proxies (singleProxy uses one proxy for all traffic)."
+        "message": "Введите хост и порт прокси для HTTP, HTTPS или SOCKS на вкладке General. Для SOCKS выберите версию протокола (SOCKS4 или SOCKS5). Proxy Mode определяет, как Chrome распределяет запросы между прокси (singleProxy использует один прокси для всего трафика)."
     },
     "usage_pac_title": {
-        "message": "PAC (Proxy Auto-Config)"
+        "message": "PAC (автонастройка прокси)"
     },
     "usage_pac_body": {
-        "message": "PAC scripts decide the proxy per URL. Paste a script inline under PAC Script, or point to a hosted script under PAC URL."
+        "message": "PAC-скрипты определяют прокси для каждого URL. Вставьте скрипт в поле PAC Script или укажите адрес размещённого скрипта в PAC URL."
     },
     "usage_bypass_title": {
-        "message": "Bypass List"
+        "message": "Белый список"
     },
     "usage_bypass_body": {
-        "message": "Domains and IP ranges that should not use the proxy. Separate entries with commas. Example: <local>, 192.168.0.0/16, *.intranet.com. Enable China List to also bypass *.cn domains."
+        "message": "Домены и диапазоны IP, для которых прокси не используется. Разделяйте записи запятыми. Пример: <local>, 192.168.0.0/16, *.intranet.com. Включите China List, чтобы также исключить домены *.cn."
     },
     "usage_auth_title": {
-        "message": "Authentication"
+        "message": "Аутентификация"
     },
     "usage_auth_body": {
-        "message": "Username and password for proxies that require basic authentication. Note: Chrome's API supports authentication for HTTP/HTTPS proxies only, not SOCKS."
+        "message": "Имя пользователя и пароль для прокси, требующих базовой аутентификации. Примечание: API Chrome поддерживает аутентификацию только для HTTP/HTTPS-прокси, но не для SOCKS."
     },
     "usage_shortcuts_title": {
-        "message": "Keyboard Shortcuts"
+        "message": "Горячие клавиши"
     },
     "usage_shortcuts_body": {
-        "message": "Alt+P cycles to the next profile. Alt+O opens this options page. Customize the shortcuts at chrome://extensions/shortcuts."
+        "message": "Alt+P переключает на следующий профиль. Alt+O открывает эту страницу настроек. Настроить сочетания клавиш можно по адресу chrome://extensions/shortcuts."
     },
     "usage_switching_title": {
-        "message": "Switching Profiles"
+        "message": "Переключение профилей"
     },
     "usage_switching_body": {
-        "message": "Click the toolbar icon to open the popup, then click any profile to activate it. The profile's Active Mode is applied to Chrome immediately."
+        "message": "Нажмите значок на панели инструментов, чтобы открыть всплывающее окно, затем нажмите на любой профиль, чтобы активировать его. Активный режим профиля сразу применяется к Chrome."
     }
 }
