@@ -130,5 +130,44 @@
     },
     "proxy_helper_options": {
         "message": "プロキシーヘルパー オプション"
+    },
+    "profile_default_name": {
+        "message": "Default"
+    },
+    "profiles_label": {
+        "message": "Profile:"
+    },
+    "new_profile": {
+        "message": "New"
+    },
+    "rename_profile": {
+        "message": "Rename"
+    },
+    "duplicate_profile": {
+        "message": "Duplicate"
+    },
+    "delete_profile": {
+        "message": "Delete"
+    },
+    "set_active": {
+        "message": "Set Active"
+    },
+    "delete_profile_confirm": {
+        "message": "Delete this profile? This cannot be undone."
+    },
+    "cannot_delete_last_profile": {
+        "message": "At least one profile must exist."
+    },
+    "profile_name_prompt": {
+        "message": "Profile name:"
+    },
+    "profile_active_indicator": {
+        "message": "(active)"
+    },
+    "cycle_profile_command": {
+        "message": "Cycle to next proxy profile"
+    },
+    "active_mode": {
+        "message": "Active Mode"
     }
 }

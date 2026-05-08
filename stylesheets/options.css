@@ -90,20 +90,166 @@ body {
 }
 
 /* =============================================
+   Profile bar
+   ============================================= */
+.profile-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 22px;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border);
+  z-index: 30;
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-bar-heading {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  padding-right: 4px;
+  border-right: 1px solid var(--border);
+  margin-right: 6px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  padding-right: 14px;
+}
+
+.profile-bar-spacer { flex: 1; }
+
+.profile-bar select {
+  font-family: var(--font);
+  font-size: 13px;
+  padding: 6px 12px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-sm);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  outline: none;
+  min-width: 200px;
+  font-weight: 500;
+  transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+}
+
+.profile-bar select:hover { border-color: var(--accent); }
+.profile-bar select:focus { border-color: var(--border-focus); box-shadow: var(--shadow-focus); }
+
+.profile-bar button {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 13px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-sm);
+  background: var(--input-bg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  letter-spacing: -0.005em;
+  transition: background var(--duration) var(--ease), color var(--duration) var(--ease), border-color var(--duration) var(--ease), transform 80ms var(--ease);
+}
+
+.profile-bar button:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.profile-bar button:active { transform: translateY(0.5px); }
+
+#profile-new::before { content: '+'; margin-right: 4px; font-weight: 700; }
+
+.profile-bar .btn-primary, #profile-set-active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.profile-bar .btn-primary:hover, #profile-set-active:hover {
+  background: var(--accent-hover);
+  color: #fff;
+  border-color: var(--accent-hover);
+}
+
+.profile-bar .btn-danger {
+  color: #b91c1c;
+}
+.profile-bar .btn-danger:hover {
+  background: #fee2e2;
+  color: #991b1b;
+  border-color: #fca5a5;
+}
+
+#active-indicator {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  padding: 3px 9px;
+  background: var(--accent-soft);
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* =============================================
+   Mode radios (Active Mode section)
+   ============================================= */
+.mode-radios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.mode-radios label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-sm);
+  background: var(--input-bg);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: background var(--duration) var(--ease), border-color var(--duration) var(--ease), color var(--duration) var(--ease);
+}
+
+.mode-radios label:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.mode-radios label:has(input:checked) {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.mode-radios input[type="radio"] { margin: 0; }
+
+/* =============================================
    Sidebar
    ============================================= */
 .frame {
   display: flex;
   min-height: 100vh;
+  padding-top: 56px;
 }
 
 .navigation {
   width: 230px;
   background: var(--sidebar-bg);
   position: fixed;
-  top: 0;
+  top: 56px;
   left: 0;
-  height: 100vh;
+  height: calc(100vh - 56px);
   display: flex;
   flex-direction: column;
   z-index: 10;
@@ -236,7 +382,7 @@ ul.menu li.selected::before {
 /* ---- Page Header (sticky) ---- */
 header {
   position: sticky;
-  top: 0;
+  top: 56px;
   background: rgba(249, 249, 251, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);

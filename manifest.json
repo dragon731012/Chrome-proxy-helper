@@ -28,6 +28,11 @@
           "suggested_key": {
             "default": "Alt+O"},
           "description": "Open option page"
+        },
+        "cycle-profile": {
+          "suggested_key": {
+            "default": "Alt+P"},
+          "description": "__MSG_cycle_profile_command__"
         }
     },
     "options_page": "options.html",

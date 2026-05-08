@@ -184,5 +184,44 @@
     },
     "open_source_licenses": {
         "message": "开源许可证"
+    },
+    "profile_default_name": {
+        "message": "Default"
+    },
+    "profiles_label": {
+        "message": "配置:"
+    },
+    "new_profile": {
+        "message": "新建"
+    },
+    "rename_profile": {
+        "message": "重命名"
+    },
+    "duplicate_profile": {
+        "message": "复制"
+    },
+    "delete_profile": {
+        "message": "删除"
+    },
+    "set_active": {
+        "message": "设为活动"
+    },
+    "delete_profile_confirm": {
+        "message": "删除此配置？此操作不可撤销。"
+    },
+    "cannot_delete_last_profile": {
+        "message": "至少需要保留一个配置。"
+    },
+    "profile_name_prompt": {
+        "message": "配置名称:"
+    },
+    "profile_active_indicator": {
+        "message": "（当前）"
+    },
+    "cycle_profile_command": {
+        "message": "切换到下一个代理配置"
+    },
+    "active_mode": {
+        "message": "激活"
     }
 }
