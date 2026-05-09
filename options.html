@@ -170,15 +170,17 @@
                 <div class="content">
                     <h3 data-i18n-content="config_bypasslist">Bypass List</h3>
                     <section>
-                        <p data-i18n-content="domain_in_bypasslist">Domains in the bypass list will never use a proxy.
-                        </p>
-                        <a href='#' class='tooltip'>
-                                <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                                <span>
-                                    <strong>Use comma to separate, examples: </strong><br>
-                                    192.168.1.1/16,*.foobar.com,*foobar.com:99
-                                </span>
-                        </a>
+                        <div class="hint-row">
+                            <p data-i18n-content="domain_in_bypasslist">Domains in the bypass list will never use a proxy.
+                            </p>
+                            <a href='#' class='tooltip'>
+                                    <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                    <span>
+                                        <strong>Use comma to separate, examples: </strong><br>
+                                        192.168.1.1/16,*.foobar.com,*foobar.com:99
+                                    </span>
+                            </a>
+                        </div>
                         <div>
                             <textarea id="bypasslist" cols="55" rows="10" placeholder="192.168.1.1/16, *.foobar.com, *foobar.com:99, https://x.*.y.com:99"></textarea>
                         </div>

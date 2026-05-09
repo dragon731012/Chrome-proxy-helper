@@ -904,6 +904,15 @@ a.tooltip {
   align-items: center;
 }
 
+.hint-row {
+  display: flex;
+  align-items: center;
+}
+
+.hint-row p {
+  margin-bottom: 0;
+}
+
 .info-icon {
   width: 14px;
   height: 14px;
