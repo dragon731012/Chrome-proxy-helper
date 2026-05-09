@@ -162,21 +162,55 @@ html {
   z-index: 30;
 }
 
+.profile-bar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0f766e 0%, #14b8a6 50%, #06b6d4 100%);
+  pointer-events: none;
+}
+
 .profile-bar-heading {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  color: var(--text-tertiary);
-  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   height: 24px;
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   padding-right: 14px;
   margin-right: 4px;
   border-right: 1px solid var(--divider);
 }
 
+.profile-bar-heading::before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: var(--accent);
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.4' stroke-linejoin='round' stroke-linecap='round'><path d='M8 1.75l6 3-6 3-6-3 6-3z'/><path d='M2 8l6 3 6-3'/><path d='M2 11.25l6 3 6-3'/></svg>");
+          mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.4' stroke-linejoin='round' stroke-linecap='round'><path d='M8 1.75l6 3-6 3-6-3 6-3z'/><path d='M2 8l6 3 6-3'/><path d='M2 11.25l6 3 6-3'/></svg>");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  flex-shrink: 0;
+}
+
 .profile-bar-spacer { flex: 1; }
+
+.profile-bar-divider {
+  width: 1px;
+  height: 22px;
+  background: var(--divider);
+  margin: 0 4px;
+  flex-shrink: 0;
+}
 
 .profile-bar select {
   font-family: var(--font);
@@ -185,11 +219,18 @@ html {
   padding: 7px 32px 7px 12px;
   border: 1px solid var(--border-input);
   border-radius: var(--radius-sm);
-  background: var(--input-bg);
+  background-color: var(--input-bg);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%2371717a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M3 4.75l3 3 3-3'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 11px center;
+  background-size: 12px;
   color: var(--text-primary);
   cursor: pointer;
   outline: none;
   min-width: 200px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
 }
 
@@ -326,14 +367,11 @@ html {
 .navigation h1 a::before {
   content: '';
   display: inline-block;
-  width: 24px;
-  height: 24px;
-  border-radius: 7px;
-  background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--sidebar-label);
   flex-shrink: 0;
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.20);
 }
 
 .nav-section-label {
