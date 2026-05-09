@@ -107,28 +107,19 @@ body {
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow:
-    0 1px 2px rgba(13, 148, 136, 0.32),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
-}
-
-@media (prefers-color-scheme: dark) {
-  .popup-header .logo {
-    background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
-    box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.20);
-  }
 }
 
 .popup-header .logo svg {
   width: 13px;
   height: 13px;
+  display: block;
 }
 
 .popup-header h1 {
