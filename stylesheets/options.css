@@ -1,78 +1,131 @@
 /* =============================================
    Proxy Helper — Options
-   Minimal · Precise · Linear-inspired
+   Modern minimal refresh · indigo accent · light + dark
    ============================================= */
 
 :root {
-  /* Surfaces */
-  --bg: #f9f9fb;
-  --bg-white: #ffffff;
-  --sidebar-bg: #18181b;
-  --sidebar-surface: rgba(255, 255, 255, 0.04);
-  --sidebar-text: rgba(255, 255, 255, 0.45);
-  --sidebar-text-hover: rgba(255, 255, 255, 0.7);
+  --bg: #fafafa;
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-hover: #f4f4f5;
+  --surface-sunken: #f4f4f5;
+
+  --sidebar-bg: #0a0a0a;
+  --sidebar-text: rgba(255, 255, 255, 0.50);
+  --sidebar-text-hover: rgba(255, 255, 255, 0.78);
   --sidebar-active: #ffffff;
-  --sidebar-accent-bar: #475569;
+  --sidebar-surface: rgba(255, 255, 255, 0.05);
+  --sidebar-label: rgba(255, 255, 255, 0.30);
+  --sidebar-divider: rgba(255, 255, 255, 0.08);
 
-  /* Accent */
-  --accent: #475569;
-  --accent-soft: rgba(71, 85, 105, 0.08);
-  --accent-medium: rgba(71, 85, 105, 0.14);
-  --accent-hover: #364152;
-  --accent-focus: rgba(71, 85, 105, 0.12);
+  --accent: #0f766e;
+  --accent-hover: #115e59;
+  --accent-soft: rgba(15, 118, 110, 0.08);
+  --accent-medium: rgba(15, 118, 110, 0.14);
+  --accent-ring: rgba(15, 118, 110, 0.20);
+  --accent-on-dark: #14b8a6;
+  --accent-button: #0f766e;
+  --accent-button-hover: #115e59;
 
-  /* Text */
+  --success: #16a34a;
+  --success-soft: rgba(22, 163, 74, 0.12);
+  --success-ring: rgba(22, 163, 74, 0.24);
+
+  --danger: #dc2626;
+  --danger-soft: #fee2e2;
+  --danger-border: #fca5a5;
+  --danger-hover: #991b1b;
+
   --text-primary: #18181b;
   --text-secondary: #52525b;
   --text-tertiary: #a1a1aa;
   --text-placeholder: #c4c4cc;
 
-  /* Borders & Lines */
-  --border: rgba(0, 0, 0, 0.06);
-  --border-input: rgba(0, 0, 0, 0.1);
-  --border-focus: var(--accent);
+  --border: rgba(0, 0, 0, 0.07);
+  --border-input: rgba(0, 0, 0, 0.11);
+  --border-input-hover: rgba(0, 0, 0, 0.18);
   --divider: rgba(0, 0, 0, 0.04);
 
-  /* Input */
   --input-bg: #ffffff;
   --input-bg-hover: #fafafa;
 
-  /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-focus: 0 0 0 3px var(--accent-focus);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-popover: 0 8px 28px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.05);
+  --shadow-focus: 0 0 0 3px var(--accent-ring);
 
-  /* Radius */
+  --radius-lg: 12px;
   --radius: 10px;
   --radius-sm: 7px;
   --radius-xs: 5px;
 
-  /* Motion */
-  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --duration: 180ms;
 
-  /* Typography — system font stack
-     Latin/Cyrillic: SF Pro (macOS), Segoe UI (Win), Noto Sans (Linux)
-     CJK: PingFang SC (macOS-zh), Hiragino Sans (macOS-ja),
-          Microsoft YaHei (Win-zh), Yu Gothic UI (Win-ja), Meiryo (Win-ja fallback),
-          Noto Sans SC/JP (Linux CJK) */
   --font:
-    -apple-system, BlinkMacSystemFont,
-    "Segoe UI",
-    "Noto Sans",
-    "Helvetica Neue",
+    ui-sans-serif, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Noto Sans", "Helvetica Neue",
     "PingFang SC", "Hiragino Sans",
     "Microsoft YaHei", "Yu Gothic UI", "Meiryo",
     "Noto Sans SC", "Noto Sans JP",
     sans-serif;
 
-  /* Monospace — for PAC script / bypass list editors
-     macOS: SF Mono / Menlo, Windows: Cascadia Code / Consolas, Linux: Noto Sans Mono */
   --font-mono:
-    "SF Mono", Menlo,
+    ui-monospace, "SF Mono", Menlo,
     "Cascadia Code", Consolas,
     "Noto Sans Mono",
     monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0a0a;
+    --bg-elevated: #141414;
+    --surface: #141414;
+    --surface-hover: #1c1c1f;
+    --surface-sunken: #0f0f0f;
+
+    --sidebar-bg: #0a0a0a;
+    --sidebar-text: rgba(255, 255, 255, 0.55);
+    --sidebar-text-hover: rgba(255, 255, 255, 0.85);
+    --sidebar-active: #ffffff;
+    --sidebar-surface: rgba(255, 255, 255, 0.06);
+    --sidebar-label: rgba(255, 255, 255, 0.32);
+    --sidebar-divider: rgba(255, 255, 255, 0.08);
+
+    --accent: #14b8a6;
+    --accent-hover: #2dd4bf;
+    --accent-soft: rgba(20, 184, 166, 0.14);
+    --accent-medium: rgba(20, 184, 166, 0.22);
+    --accent-ring: rgba(20, 184, 166, 0.30);
+    --accent-button: #0f766e;
+    --accent-button-hover: #14b8a6;
+
+    --success: #4ade80;
+    --success-soft: rgba(74, 222, 128, 0.14);
+    --success-ring: rgba(74, 222, 128, 0.30);
+
+    --danger: #f87171;
+    --danger-soft: rgba(248, 113, 113, 0.14);
+    --danger-border: rgba(248, 113, 113, 0.40);
+    --danger-hover: #fca5a5;
+
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-tertiary: #71717a;
+    --text-placeholder: #52525b;
+
+    --border: rgba(255, 255, 255, 0.08);
+    --border-input: rgba(255, 255, 255, 0.12);
+    --border-input-hover: rgba(255, 255, 255, 0.22);
+    --divider: rgba(255, 255, 255, 0.06);
+
+    --input-bg: #161618;
+    --input-bg-hover: #1c1c1f;
+
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.30);
+    --shadow-popover: 0 8px 28px rgba(0, 0, 0, 0.50), 0 2px 6px rgba(0, 0, 0, 0.30);
+  }
 }
 
 *, *::before, *::after {
@@ -89,8 +142,12 @@ body {
   line-height: 1.5;
 }
 
+html {
+  background: var(--bg);
+}
+
 /* =============================================
-   Profile bar
+   Profile bar (sticky top)
    ============================================= */
 .profile-bar {
   position: fixed;
@@ -98,26 +155,25 @@ body {
   height: 56px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 0 22px;
-  background: var(--bg-white);
+  background: var(--bg-elevated);
   border-bottom: 1px solid var(--border);
   z-index: 30;
-  box-shadow: var(--shadow-sm);
 }
 
 .profile-bar-heading {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
-  padding-right: 4px;
-  border-right: 1px solid var(--border);
-  margin-right: 6px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   height: 24px;
   display: inline-flex;
   align-items: center;
   padding-right: 14px;
+  margin-right: 4px;
+  border-right: 1px solid var(--divider);
 }
 
 .profile-bar-spacer { flex: 1; }
@@ -125,7 +181,8 @@ body {
 .profile-bar select {
   font-family: var(--font);
   font-size: 13px;
-  padding: 6px 12px;
+  font-weight: 550;
+  padding: 7px 32px 7px 12px;
   border: 1px solid var(--border-input);
   border-radius: var(--radius-sm);
   background: var(--input-bg);
@@ -133,25 +190,28 @@ body {
   cursor: pointer;
   outline: none;
   min-width: 200px;
-  font-weight: 500;
   transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
 }
 
 .profile-bar select:hover { border-color: var(--accent); }
-.profile-bar select:focus { border-color: var(--border-focus); box-shadow: var(--shadow-focus); }
+.profile-bar select:focus { border-color: var(--accent); box-shadow: var(--shadow-focus); }
 
 .profile-bar button {
   font-family: var(--font);
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 600;
-  padding: 6px 13px;
+  padding: 7px 13px;
   border: 1px solid var(--border-input);
   border-radius: var(--radius-sm);
   background: var(--input-bg);
   color: var(--text-secondary);
   cursor: pointer;
   letter-spacing: -0.005em;
-  transition: background var(--duration) var(--ease), color var(--duration) var(--ease), border-color var(--duration) var(--ease), transform 80ms var(--ease);
+  transition:
+    background var(--duration) var(--ease),
+    color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    transform 80ms var(--ease);
 }
 
 .profile-bar button:hover {
@@ -162,92 +222,64 @@ body {
 
 .profile-bar button:active { transform: translateY(0.5px); }
 
-#profile-new::before { content: '+'; margin-right: 4px; font-weight: 700; }
-
-.profile-bar .btn-primary, #profile-set-active {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
+#profile-new::before {
+  content: '+';
+  margin-right: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  vertical-align: -1px;
 }
-.profile-bar .btn-primary:hover, #profile-set-active:hover {
-  background: var(--accent-hover);
-  color: #fff;
-  border-color: var(--accent-hover);
+
+.profile-bar .btn-primary,
+#profile-set-active {
+  background: var(--accent-button);
+  color: #ffffff;
+  border-color: var(--accent-button);
+}
+
+.profile-bar .btn-primary:hover,
+#profile-set-active:hover {
+  background: var(--accent-button-hover);
+  color: #ffffff;
+  border-color: var(--accent-button-hover);
 }
 
 .profile-bar .btn-danger {
-  color: #b91c1c;
+  color: var(--danger);
 }
+
 .profile-bar .btn-danger:hover {
-  background: #fee2e2;
-  color: #991b1b;
-  border-color: #fca5a5;
+  background: var(--danger-soft);
+  color: var(--danger-hover);
+  border-color: var(--danger-border);
 }
 
 #active-indicator {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--accent);
-  padding: 3px 9px;
-  background: var(--accent-soft);
-  border-radius: var(--radius-xs);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-/* =============================================
-   Usage page — readable body paragraphs
-   ============================================= */
-#usage section p {
-  display: block;
-  font-size: 13.5px;
-  color: var(--text-secondary);
-  margin-bottom: 0;
-  line-height: 1.65;
-  max-width: 720px;
-}
-
-/* =============================================
-   Mode radios (Active Mode section)
-   ============================================= */
-.mode-radios {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 8px;
-  margin-top: 4px;
-}
-
-.mode-radios label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 12px;
-  border: 1px solid var(--border-input);
-  border-radius: var(--radius-sm);
-  background: var(--input-bg);
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  transition: background var(--duration) var(--ease), border-color var(--duration) var(--ease), color var(--duration) var(--ease);
-}
-
-.mode-radios label:hover {
-  border-color: var(--accent);
-  color: var(--text-primary);
-}
-
-.mode-radios label:has(input:checked) {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-  color: var(--accent);
+  gap: 6px;
+  font-size: 11px;
   font-weight: 600;
+  color: var(--success);
+  padding: 4px 10px 4px 8px;
+  background: var(--success-soft);
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  text-transform: none;
 }
 
-.mode-radios input[type="radio"] { margin: 0; }
+#active-indicator::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 3px var(--success-ring);
+}
 
 /* =============================================
-   Sidebar
+   Frame layout
    ============================================= */
 .frame {
   display: flex;
@@ -255,8 +287,11 @@ body {
   padding-top: 56px;
 }
 
+/* =============================================
+   Sidebar
+   ============================================= */
 .navigation {
-  width: 230px;
+  width: 232px;
   background: var(--sidebar-bg);
   position: fixed;
   top: 56px;
@@ -267,19 +302,19 @@ body {
   z-index: 10;
   overflow-y: auto;
   overflow-x: hidden;
+  border-right: 1px solid var(--sidebar-divider);
 }
 
-/* ---- Logo area ---- */
 .navigation h1 {
-  padding: 28px 22px 24px;
+  padding: 26px 20px 22px;
   margin: 0;
   border: none;
 }
 
 .navigation h1 a {
   font-size: 14px;
-  font-weight: 600;
-  color: #f4f4f5;
+  font-weight: 650;
+  color: #fafafa;
   text-decoration: none;
   letter-spacing: -0.02em;
   display: flex;
@@ -294,32 +329,31 @@ body {
   width: 24px;
   height: 24px;
   border-radius: 7px;
-  background: var(--accent);
+  background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(71, 85, 105, 0.35);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20);
 }
 
-/* ---- Section labels ---- */
 .nav-section-label {
   font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.22);
-  padding: 20px 22px 8px;
+  letter-spacing: 0.10em;
+  color: var(--sidebar-label);
+  padding: 18px 22px 6px;
   font-weight: 600;
 }
 
-/* ---- Menu items ---- */
 ul.menu {
   padding: 0 10px;
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   list-style: none;
 }
 
 ul.menu li {
   margin: 1px 0;
   border-radius: var(--radius-sm);
-  transition: background var(--duration) var(--ease);
   position: relative;
   list-style: none;
 }
@@ -327,53 +361,47 @@ ul.menu li {
 ul.menu li a {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 9px 12px;
+  padding: 8px 12px;
   color: var(--sidebar-text);
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
   border-radius: var(--radius-sm);
-  transition: color var(--duration) var(--ease);
+  transition:
+    color var(--duration) var(--ease),
+    background var(--duration) var(--ease);
   line-height: 1.2;
   letter-spacing: -0.005em;
 }
 
-ul.menu li:hover {
-  background: var(--sidebar-surface);
-}
-
 ul.menu li:hover a {
   color: var(--sidebar-text-hover);
-}
-
-/* Selected state */
-ul.menu li.selected {
-  background: rgba(255, 255, 255, 0.07);
+  background: var(--sidebar-surface);
 }
 
 ul.menu li.selected a {
   color: var(--sidebar-active);
+  background: var(--sidebar-surface);
   font-weight: 600;
 }
 
 ul.menu li.selected::before {
   content: '';
   position: absolute;
-  left: 0;
+  left: -10px;
   top: 50%;
   transform: translateY(-50%);
   width: 3px;
   height: 16px;
-  border-radius: 0 3px 3px 0;
-  background: var(--sidebar-accent-bar);
+  border-radius: 0 2px 2px 0;
+  background: var(--accent-on-dark);
 }
 
 /* =============================================
-   Main Content
+   Main content
    ============================================= */
 .mainview {
-  margin-left: 230px;
+  margin-left: 232px;
   flex: 1;
   min-height: 100vh;
 }
@@ -382,7 +410,7 @@ ul.menu li.selected::before {
   display: none;
   opacity: 0;
   transform: translateY(4px);
-  transition: opacity 220ms ease, transform 220ms ease;
+  transition: opacity 240ms var(--ease-out), transform 240ms var(--ease-out);
 }
 
 .mainview > .selected {
@@ -391,78 +419,79 @@ ul.menu li.selected::before {
   transform: translateY(0);
 }
 
-/* ---- Page Header (sticky) ---- */
+/* ---- Sticky page header ---- */
 header {
   position: sticky;
   top: 56px;
-  background: rgba(249, 249, 251, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
   z-index: 5;
-  padding: 32px 40px 20px;
+  padding: 30px 40px 18px;
   border-bottom: 1px solid var(--divider);
 }
 
 header h1 {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: -0.035em;
+  letter-spacing: -0.030em;
   margin: 0;
   padding: 0;
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
-/* ---- Content container ---- */
 .content {
-  padding: 28px 40px 56px;
-  max-width: 640px;
+  padding: 28px 40px 64px;
+  max-width: 680px;
 }
 
-/* ---- Section headings ---- */
+/* =============================================
+   Section headings
+   ============================================= */
 h3 {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
-  margin: 32px 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 28px 0 10px;
 }
 
 h3:first-child {
-  margin-top: 0;
+  margin-top: 4px;
 }
 
 h4 {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  margin: 24px 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 22px 0 8px;
 }
 
-/* ---- Cards ---- */
+/* =============================================
+   Cards (flat)
+   ============================================= */
 section {
-  background: var(--bg-white);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px 18px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   box-shadow: var(--shadow-xs);
-  transition: box-shadow var(--duration) var(--ease);
-}
-
-section:hover {
-  box-shadow: var(--shadow-sm);
 }
 
 section p {
-  display: inline-block;
+  display: block;
   font-size: 12.5px;
-  color: var(--text-tertiary);
-  margin-bottom: 12px;
-  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  line-height: 1.55;
+  max-width: 540px;
 }
 
-/* ---- Form row spacing ---- */
 section > div {
   margin-bottom: 10px;
 }
@@ -471,22 +500,121 @@ section > div:last-child {
   margin-bottom: 0;
 }
 
-/* ---- Labels ---- */
+/* =============================================
+   Mode tiles (Active Mode picker)
+   ============================================= */
+.mode-radios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+  margin-top: 0;
+}
+
+.mode-radios label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-sm);
+  background: var(--input-bg);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 550;
+  color: var(--text-secondary);
+  transition:
+    background var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    color var(--duration) var(--ease),
+    transform 100ms var(--ease);
+  user-select: none;
+}
+
+.mode-radios label:hover {
+  border-color: var(--border-input-hover);
+  color: var(--text-primary);
+  background: var(--surface-hover);
+}
+
+.mode-radios label:active {
+  transform: translateY(0.5px);
+}
+
+.mode-radios input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+.mode-radios .mode-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+  transition: color var(--duration) var(--ease);
+}
+
+.mode-radios .mode-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mode-radios .mode-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mode-radios label:hover .mode-icon {
+  color: var(--text-secondary);
+}
+
+.mode-radios label:has(input:checked) {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 650;
+}
+
+.mode-radios label:has(input:checked) .mode-icon {
+  color: var(--accent);
+}
+
+.mode-radios label:focus-within {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  border-color: var(--accent);
+}
+
+/* =============================================
+   Form labels & inputs
+   ============================================= */
 .ip_label,
 .port_label,
 .field_label {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12.5px;
+  font-weight: 550;
   color: var(--text-secondary);
   display: inline-block;
   flex-shrink: 0;
 }
 
 .ip_label { width: 110px; }
-.port_label { width: 44px; margin-left: 10px; }
+.port_label { width: 44px; margin-left: 12px; }
 .field_label { width: 110px; margin-right: 8px; }
 
-/* ---- Inputs ---- */
 input[type="text"],
 input[type="password"],
 input[type="number"] {
@@ -498,21 +626,22 @@ input[type="number"] {
   border-radius: var(--radius-xs);
   padding: 7px 10px;
   min-height: 34px;
-  transition:
-    border-color var(--duration) var(--ease),
-    box-shadow var(--duration) var(--ease);
   outline: none;
   line-height: 1.4;
+  transition:
+    border-color var(--duration) var(--ease),
+    background var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
 }
 
 input[type="text"]:hover,
 input[type="password"]:hover {
-  border-color: rgba(0, 0, 0, 0.16);
+  border-color: var(--border-input-hover);
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-  border-color: var(--border-focus);
+  border-color: var(--accent);
   box-shadow: var(--shadow-focus);
 }
 
@@ -527,7 +656,7 @@ select {
   font-family: var(--font);
   font-size: 13px;
   color: var(--text-primary);
-  background: var(--input-bg);
+  background-color: var(--input-bg);
   border: 1px solid var(--border-input);
   border-radius: var(--radius-xs);
   padding: 7px 30px 7px 10px;
@@ -542,41 +671,47 @@ select {
   transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
 }
 
-select:hover {
-  border-color: rgba(0, 0, 0, 0.16);
+select:hover { border-color: var(--border-input-hover); }
+select:focus {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-focus);
 }
 
-select:focus {
-  border-color: var(--border-focus);
-  box-shadow: var(--shadow-focus);
+@media (prefers-color-scheme: dark) {
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  }
 }
 
 /* ---- Textarea ---- */
 textarea {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--text-primary);
   background: var(--input-bg);
   border: 1px solid var(--border-input);
   border-radius: var(--radius-xs);
-  padding: 10px 12px;
+  padding: 11px 13px;
   width: 100%;
   resize: vertical;
   outline: none;
-  transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
   line-height: 1.65;
+  transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
 }
 
-textarea:hover {
-  border-color: rgba(0, 0, 0, 0.16);
-}
-
+textarea:hover { border-color: var(--border-input-hover); }
 textarea:focus {
-  border-color: var(--border-focus);
+  border-color: var(--accent);
   box-shadow: var(--shadow-focus);
 }
 
-/* ---- Checkbox / Radio ---- */
+textarea::placeholder {
+  color: var(--text-placeholder);
+}
+
+/* =============================================
+   Checkbox / Radio (default for non-mode radios)
+   ============================================= */
 input[type="checkbox"],
 input[type="radio"] {
   appearance: none;
@@ -588,18 +723,25 @@ input[type="radio"] {
   background: var(--input-bg);
   cursor: pointer;
   position: relative;
-  transition: all var(--duration) var(--ease);
+  transition:
+    background var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
   flex-shrink: 0;
   vertical-align: middle;
 }
 
-input[type="radio"] {
-  border-radius: 50%;
-}
+input[type="radio"] { border-radius: 50%; }
 
 input[type="checkbox"]:hover,
 input[type="radio"]:hover {
-  border-color: rgba(0, 0, 0, 0.2);
+  border-color: var(--border-input-hover);
+}
+
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
+  box-shadow: var(--shadow-focus);
+  border-color: var(--accent);
 }
 
 input[type="checkbox"]:checked {
@@ -614,7 +756,7 @@ input[type="checkbox"]:checked::after {
   top: 1px;
   width: 5px;
   height: 9px;
-  border: solid #fff;
+  border: solid #ffffff;
   border-width: 0 1.8px 1.8px 0;
   transform: rotate(45deg);
 }
@@ -638,8 +780,8 @@ input[type="radio"]:checked::after {
 .checkbox {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin: 6px 0;
+  gap: 9px;
+  margin: 4px 0;
 }
 
 .checkbox span {
@@ -648,24 +790,63 @@ input[type="radio"]:checked::after {
   font-weight: 500;
 }
 
-/* ---- SOCKS radio row ---- */
+/* =============================================
+   SOCKS segmented toggle
+   ============================================= */
 .socks {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin: 8px 0 2px 0;
-  padding-left: 0;
+  padding: 3px;
+  background: var(--surface-sunken);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-sm);
+  margin: 8px 0 2px 122px;
+  gap: 2px;
 }
 
-.socks span {
+.socks-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background var(--duration) var(--ease);
+}
+
+.socks-toggle input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+.socks-toggle span {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 650;
   color: var(--text-tertiary);
-  letter-spacing: 0.03em;
-  margin-right: 10px;
+  letter-spacing: 0.04em;
+  transition: color var(--duration) var(--ease);
+  line-height: 1;
 }
 
-/* ---- Buttons ---- */
+.socks-toggle:hover span { color: var(--text-secondary); }
+
+.socks-toggle:has(input:checked) {
+  background: var(--bg-elevated);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 0 0 1px var(--border);
+}
+
+.socks-toggle:has(input:checked) span {
+  color: var(--accent);
+}
+
+/* =============================================
+   Buttons
+   ============================================= */
 button, .btn {
   font-family: var(--font);
   font-size: 13px;
@@ -681,38 +862,14 @@ button, .btn {
   line-height: 1.4;
 }
 
-#btn-save {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 1px 3px rgba(71, 85, 105, 0.25);
-}
-
-#btn-save:hover {
-  background: var(--accent-hover);
-  box-shadow: 0 2px 8px rgba(71, 85, 105, 0.3);
-  transform: translateY(-0.5px);
-}
-
-#btn-save:active {
-  transform: translateY(0);
-}
-
-#btn-cancel {
-  background: var(--bg);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-input);
-}
-
-#btn-cancel:hover {
-  background: var(--input-bg-hover);
-}
-
-/* ---- File Input ---- */
+/* =============================================
+   File input
+   ============================================= */
 input[type="file"] {
   font-family: var(--font);
   font-size: 13px;
   color: var(--text-secondary);
-  margin: 6px 0;
+  margin: 4px 0;
 }
 
 input[type="file"]::file-selector-button {
@@ -722,7 +879,7 @@ input[type="file"]::file-selector-button {
   padding: 6px 12px;
   border-radius: var(--radius-xs);
   border: 1px solid var(--border-input);
-  background: var(--bg-white);
+  background: var(--input-bg);
   color: var(--text-primary);
   cursor: pointer;
   margin-right: 10px;
@@ -730,69 +887,41 @@ input[type="file"]::file-selector-button {
 }
 
 input[type="file"]::file-selector-button:hover {
-  background: var(--input-bg-hover);
-  border-color: rgba(0, 0, 0, 0.16);
+  background: var(--surface-hover);
+  border-color: var(--border-input-hover);
 }
 
-/* ---- Table ---- */
-table.simpletable {
-  width: 100%;
-  font-size: 13px;
-  border-collapse: collapse;
-  margin: 2px 0;
-}
-
-table.simpletable th {
-  text-align: left;
-  font-weight: 600;
-  color: var(--text-tertiary);
-  padding: 8px 12px;
-  border-bottom: 1px solid var(--border);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-table.simpletable td {
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--divider);
-  color: var(--text-primary);
-}
-
-table.simpletable tr:last-child td {
-  border-bottom: none;
-}
-
-table.simpletable a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-table.simpletable a:hover {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-/* ---- Tooltip ---- */
+/* =============================================
+   Tooltip (info icon + dark popover)
+   ============================================= */
 a.tooltip {
   outline: none;
   text-decoration: none;
   position: relative;
-  margin-left: 4px;
+  margin-left: 6px;
   vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
 }
 
-a.tooltip img {
-  width: 15px;
-  height: 15px;
+.info-icon {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: var(--text-tertiary);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
   vertical-align: middle;
-  opacity: 0.3;
-  transition: opacity var(--duration) var(--ease);
+  opacity: 0.55;
+  transition: opacity var(--duration) var(--ease), stroke var(--duration) var(--ease);
+  cursor: help;
 }
 
-a.tooltip:hover img {
-  opacity: 0.6;
+a.tooltip:hover .info-icon,
+a.tooltip:focus .info-icon {
+  opacity: 1;
+  stroke: var(--accent);
 }
 
 a.tooltip span {
@@ -800,32 +929,56 @@ a.tooltip span {
   position: absolute;
   z-index: 20;
   padding: 12px 14px;
-  margin-top: -30px;
+  margin-top: -4px;
   margin-left: 22px;
-  width: 300px;
-  line-height: 1.6;
+  width: 320px;
+  line-height: 1.55;
   font-size: 12px;
-  color: var(--text-secondary);
-  background: var(--bg-white);
-  border: 1px solid var(--border);
+  color: rgba(255, 255, 255, 0.82);
+  background: #18181b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-popover);
 }
 
-a.tooltip:hover span {
+a.tooltip:hover span,
+a.tooltip:focus span {
   display: block;
 }
 
 a.tooltip span strong {
   display: block;
   margin-bottom: 4px;
-  color: var(--text-primary);
+  color: #fafafa;
   font-size: 12px;
+  font-weight: 650;
+}
+
+@media (prefers-color-scheme: dark) {
+  a.tooltip span {
+    background: #232327;
+    border-color: rgba(255, 255, 255, 0.10);
+    color: rgba(255, 255, 255, 0.86);
+  }
 }
 
 .callout { display: none; }
 
-/* ---- About section ---- */
+/* =============================================
+   Usage page
+   ============================================= */
+#usage section p {
+  display: block;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+/* =============================================
+   About
+   ============================================= */
 #about .section {
   display: flex;
   align-items: center;
@@ -841,11 +994,56 @@ a.tooltip span strong {
 #about a {
   color: var(--accent);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 550;
   font-size: 13px;
+  transition: color var(--duration) var(--ease);
 }
 
 #about a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* =============================================
+   Table
+   ============================================= */
+table.simpletable {
+  width: 100%;
+  font-size: 13px;
+  border-collapse: collapse;
+}
+
+table.simpletable th {
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+table.simpletable td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--divider);
+  color: var(--text-primary);
+}
+
+table.simpletable tr:last-child td {
+  border-bottom: none;
+}
+
+table.simpletable a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 550;
+  transition: color var(--duration) var(--ease);
+}
+
+table.simpletable a:hover {
+  color: var(--accent-hover);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -854,39 +1052,41 @@ a.tooltip span strong {
    Responsive
    ============================================= */
 @media (max-width: 800px) {
-  .navigation {
-    width: 190px;
-  }
-  .mainview {
-    margin-left: 190px;
-  }
-  .content {
-    padding: 20px 24px 40px;
-  }
-  header {
-    padding: 24px 24px 16px;
-  }
+  .navigation { width: 192px; }
+  .mainview { margin-left: 192px; }
+  .content { padding: 22px 24px 48px; }
+  header { padding: 24px 24px 16px; }
 }
 
 /* =============================================
    Scrollbar
    ============================================= */
-::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.07); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.12); }
-.navigation::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); }
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.16); }
+
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.16); }
+}
+
+.navigation::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); }
+.navigation::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.16); }
 
 /* =============================================
-   Entry animation
+   Section entrance
    ============================================= */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: 0; transform: translateY(5px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 section {
-  animation: fadeIn 280ms var(--ease) both;
+  animation: fadeIn 280ms var(--ease-out) both;
 }
 
 section:nth-child(2) { animation-delay: 40ms; }
@@ -894,7 +1094,7 @@ section:nth-child(3) { animation-delay: 80ms; }
 section:nth-child(4) { animation-delay: 120ms; }
 
 /* =============================================
-   CJK / Cyrillic typography refinements
+   CJK / Cyrillic refinements
    ============================================= */
 :lang(zh), :lang(ja) {
   letter-spacing: 0;
@@ -903,38 +1103,52 @@ section:nth-child(4) { animation-delay: 120ms; }
 
 :lang(zh) { font-feature-settings: "palt"; }
 
-/* CJK lines need more breathing room */
 :lang(zh) body,
 :lang(ja) body {
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-/* Sidebar: reset negative letter-spacing for CJK */
 :lang(zh) .navigation h1 a,
 :lang(ja) .navigation h1 a,
-:lang(ru) .navigation h1 a {
-  letter-spacing: 0;
-}
-
+:lang(ru) .navigation h1 a,
 :lang(zh) ul.menu li a,
 :lang(ja) ul.menu li a,
 :lang(ru) ul.menu li a {
   letter-spacing: 0;
 }
 
-/* Page header: CJK title spacing */
 :lang(zh) header h1,
 :lang(ja) header h1,
 :lang(ru) header h1 {
   letter-spacing: -0.01em;
 }
 
-/* Labels: slightly larger for CJK readability */
 :lang(zh) .ip_label,
 :lang(zh) .port_label,
 :lang(zh) .field_label,
 :lang(ja) .ip_label,
 :lang(ja) .port_label,
 :lang(ja) .field_label {
-  font-size: 13.5px;
+  font-size: 13px;
+}
+
+:lang(zh) h3,
+:lang(ja) h3,
+:lang(zh) h4,
+:lang(ja) h4 {
+  letter-spacing: 0.04em;
+  font-size: 12px;
+}
+
+:lang(zh) .profile-bar-heading,
+:lang(ja) .profile-bar-heading {
+  letter-spacing: 0.04em;
+  font-size: 12px;
+}
+
+/* CJK doesn't render uppercase well — preserve case */
+:lang(zh) #active-indicator,
+:lang(ja) #active-indicator {
+  text-transform: none;
+  letter-spacing: 0;
 }

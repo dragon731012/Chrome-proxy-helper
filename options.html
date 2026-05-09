@@ -70,14 +70,14 @@
                 <div class="content">
                     <section>
                         <div class="mode-radios">
-                            <label data-mode="direct"><input type="radio" name="mode" id="mode-direct" value="direct"><span data-i18n-content="direct_proxy">Direct</span></label>
-                            <label data-mode="system"><input type="radio" name="mode" id="mode-system" value="system"><span data-i18n-content="system_proxy">System</span></label>
-                            <label data-mode="auto_detect"><input type="radio" name="mode" id="mode-auto_detect" value="auto_detect"><span data-i18n-content="auto_detect_set">Auto Detect</span></label>
-                            <label data-mode="http"><input type="radio" name="mode" id="mode-http" value="http"><span data-i18n-content="http_proxy_set">HTTP Proxy</span></label>
-                            <label data-mode="https"><input type="radio" name="mode" id="mode-https" value="https"><span data-i18n-content="https_proxy_set">HTTPS Proxy</span></label>
-                            <label data-mode="socks"><input type="radio" name="mode" id="mode-socks" value="socks"><span data-i18n-content="socks_proxy_set">SOCKS Proxy</span></label>
-                            <label data-mode="pac_url"><input type="radio" name="mode" id="mode-pac_url" value="pac_url"><span data-i18n-content="pac_url_set">PAC URL</span></label>
-                            <label data-mode="pac_data"><input type="radio" name="mode" id="mode-pac_data" value="pac_data"><span data-i18n-content="pac_data_set">PAC Script</span></label>
+                            <label data-mode="direct"><input type="radio" name="mode" id="mode-direct" value="direct"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="direct_proxy">Direct</span></label>
+                            <label data-mode="system"><input type="radio" name="mode" id="mode-system" value="system"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="system_proxy">System</span></label>
+                            <label data-mode="auto_detect"><input type="radio" name="mode" id="mode-auto_detect" value="auto_detect"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="auto_detect_set">Auto Detect</span></label>
+                            <label data-mode="http"><input type="radio" name="mode" id="mode-http" value="http"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="http_proxy_set">HTTP Proxy</span></label>
+                            <label data-mode="https"><input type="radio" name="mode" id="mode-https" value="https"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="https_proxy_set">HTTPS Proxy</span></label>
+                            <label data-mode="socks"><input type="radio" name="mode" id="mode-socks" value="socks"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="socks_proxy_set">SOCKS Proxy</span></label>
+                            <label data-mode="pac_url"><input type="radio" name="mode" id="mode-pac_url" value="pac_url"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="pac_url_set">PAC URL</span></label>
+                            <label data-mode="pac_data"><input type="radio" name="mode" id="mode-pac_data" value="pac_data"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="pac_data_set">PAC Script</span></label>
                         </div>
                     </section>
                 </div>
@@ -108,10 +108,8 @@
                             <input type="text" size="6" id="socks-port" placeholder="1080"/>
                         </div>
                         <div class="socks">
-                            <input type="radio" id="socks4" name="socks"/>
-                            <span>SOCKS4</span>
-                            <input type="radio" id="socks5" name="socks"/>
-                            <span>SOCKS5</span>
+                            <label class="socks-toggle"><input type="radio" id="socks4" name="socks"/><span>SOCKS4</span></label>
+                            <label class="socks-toggle"><input type="radio" id="socks5" name="socks"/><span>SOCKS5</span></label>
                         </div>
                     </section>
 
@@ -144,7 +142,7 @@
                             </select>
                             <input type="text" size="30" id="pac-script-url" placeholder="127.0.0.1/proxy.pac"/>
                             <a href='#' class='tooltip'>
-                                <img src="images/help.gif">
+                                <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
                                 <span>
                                     <strong>Remote PAC script:</strong>
                                     http://127.0.0.1/proxy.pac<br>
@@ -175,7 +173,7 @@
                         <p data-i18n-content="domain_in_bypasslist">Domains in the bypass list will never use a proxy.
                         </p>
                         <a href='#' class='tooltip'>
-                                <img src="images/help.gif">
+                                <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
                                 <span>
                                     <strong>Use comma to separate, examples: </strong><br>
                                     192.168.1.1/16,*.foobar.com,*foobar.com:99
@@ -206,7 +204,7 @@
                             <span class="field_label" data-i18n-content="user">Username:</span>
                             <input type="text" id="username" size="20" placeholder="username"/>
                             <a href='#' class='tooltip'>
-                                <img src="images/help.gif">
+                                <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
                                 <span>
                                     <strong>Note:</strong> Chrome API doesn't support SOCKS authentication.
                                 </span>
