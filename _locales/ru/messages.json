@@ -195,37 +195,37 @@
         "message": "Profile:"
     },
     "new_profile": {
-        "message": "New"
+        "message": "Создать"
     },
     "rename_profile": {
-        "message": "Rename"
+        "message": "Переименовать"
     },
     "duplicate_profile": {
-        "message": "Duplicate"
+        "message": "Дублировать"
     },
     "delete_profile": {
-        "message": "Delete"
+        "message": "Удалить"
     },
     "set_active": {
-        "message": "Set Active"
+        "message": "Активировать"
     },
     "delete_profile_confirm": {
-        "message": "Delete this profile? This cannot be undone."
+        "message": "Удалить этот профиль? Это действие нельзя отменить."
     },
     "cannot_delete_last_profile": {
-        "message": "At least one profile must exist."
+        "message": "Должен существовать хотя бы один профиль."
     },
     "profile_name_prompt": {
-        "message": "Profile name:"
+        "message": "Имя профиля:"
     },
     "profile_active_indicator": {
-        "message": "(active)"
+        "message": "(активный)"
     },
     "cycle_profile_command": {
-        "message": "Cycle to next proxy profile"
+        "message": "Переключиться на следующий прокси-профиль"
     },
     "active_mode": {
-        "message": "Active Mode"
+        "message": "Активный режим"
     },
     "usage": {
         "message": "Использование"

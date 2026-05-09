@@ -138,37 +138,37 @@
         "message": "Profile:"
     },
     "new_profile": {
-        "message": "New"
+        "message": "新規"
     },
     "rename_profile": {
-        "message": "Rename"
+        "message": "名前変更"
     },
     "duplicate_profile": {
-        "message": "Duplicate"
+        "message": "複製"
     },
     "delete_profile": {
-        "message": "Delete"
+        "message": "削除"
     },
     "set_active": {
-        "message": "Set Active"
+        "message": "有効化"
     },
     "delete_profile_confirm": {
-        "message": "Delete this profile? This cannot be undone."
+        "message": "このプロファイルを削除しますか？この操作は元に戻せません。"
     },
     "cannot_delete_last_profile": {
-        "message": "At least one profile must exist."
+        "message": "少なくとも1つのプロファイルが必要です。"
     },
     "profile_name_prompt": {
-        "message": "Profile name:"
+        "message": "プロファイル名:"
     },
     "profile_active_indicator": {
-        "message": "(active)"
+        "message": "（アクティブ）"
     },
     "cycle_profile_command": {
-        "message": "Cycle to next proxy profile"
+        "message": "次のプロキシプロファイルに切り替え"
     },
     "active_mode": {
-        "message": "Active Mode"
+        "message": "アクティブモード"
     },
     "usage": {
         "message": "使い方"
