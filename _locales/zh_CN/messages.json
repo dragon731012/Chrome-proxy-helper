@@ -264,7 +264,7 @@
         "message": "规则：白名单与黑名单"
     },
     "usage_rules_body": {
-        "message": "规则页决定哪些主机走代理。白名单（默认）：除了 Bypass 列表里命中的域名/IP，全部请求都走代理。黑名单：只有命中代理列表的请求走代理，其他直连——通过自动生成的 PAC 脚本实现。两个列表都以逗号分隔，支持裸域名（example.com 也会覆盖其子域名）、通配符（*.foo.com）、CIDR（192.168.0.0/16）以及 <local>。China List 只对白名单生效。"
+        "message": "规则与常规的 HTTP / HTTPS / SOCKS 代理模式配合使用，与 PAC URL / PAC Script 模式互斥（PAC 模式有自己的路由逻辑）。白名单（默认）：除了命中 Bypass 列表的请求，其他都走代理。黑名单：只有命中代理列表的请求走代理，其他直连——通过自动生成的 PAC 脚本实现。两个列表都以逗号分隔，支持裸域名（example.com 也覆盖子域名）、通配符（*.foo.com）、CIDR（192.168.0.0/16）和 <local>。China List 只对白名单生效。"
     },
     "usage_auth_title": {
         "message": "认证"
