@@ -120,7 +120,7 @@
         "message" : "プロキシーサーバー"
     },
     "rules_mode": {
-        "message": "ルールのモード"
+        "message": "ルールモード:"
     },
     "Whitelist": {
         "message": "ホワイトリスト"

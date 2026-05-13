@@ -174,7 +174,7 @@
         "message": "在黑名单里的域名将使用代理"
     },
     "rules_mode": {
-        "message": "设置规则模式"
+        "message": "规则模式:"
     },
     "Whitelist": {
         "message": "白名单"
