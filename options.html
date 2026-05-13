@@ -264,9 +264,9 @@
                         <p data-i18n-content="usage_pac_body">PAC scripts decide the proxy per URL. Paste a script inline under PAC Script, or point to a hosted script under PAC URL.</p>
                     </section>
 
-                    <h3 data-i18n-content="usage_bypass_title">Bypass List</h3>
+                    <h3 data-i18n-content="usage_rules_title">Rules: Whitelist &amp; Blacklist</h3>
                     <section>
-                        <p data-i18n-content="usage_bypass_body">Domains and IP ranges that should not use the proxy. Separate entries with commas. Example: &lt;local&gt;, 192.168.0.0/16, *.intranet.com. Enable China List to also bypass *.cn domains.</p>
+                        <p data-i18n-content="usage_rules_body">The Rules tab decides which hosts go through the proxy. Whitelist (default): every request uses the proxy except those matching the bypass list. Blacklist: only requests matching the proxy list use the proxy, everything else goes direct — implemented as a generated PAC script. Both lists are comma-separated and accept bare hosts (example.com also covers subdomains), wildcards (*.foo.com), CIDR (192.168.0.0/16), and &lt;local&gt;. China List applies to Whitelist mode only.</p>
                     </section>
 
                     <h3 data-i18n-content="usage_auth_title">Authentication</h3>
