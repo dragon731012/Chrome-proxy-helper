@@ -33,9 +33,4 @@ document.addEventListener('DOMContentLoaded',
        if (message)
          $(this).html(message);
     });
-
-    $('.mode-radios label[data-mode]').each(function() {
-      var slot = this.querySelector('.mode-icon');
-      if (slot) slot.innerHTML = modeIcon(this.getAttribute('data-mode'));
-    });
 });

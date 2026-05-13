@@ -110,6 +110,9 @@
     "config_proxy": {
         "message": "Settings"
     },
+    "more_modes": {
+        "message": "More"
+    },
     "chrome_web_store": {
         "message": "Chrome Web Store"
     },
@@ -165,19 +168,19 @@
         "message": "Overview"
     },
     "usage_overview_body": {
-        "message": "Proxy Helper switches Chrome's proxy independently of the system proxy. Each profile holds a complete proxy configuration. Click a profile in the popup to activate it."
+        "message": "Proxy Helper switches Chrome's proxy independently of the system proxy. Each profile holds a complete proxy configuration; pick a profile and a proxy type from the popup to apply it."
     },
     "usage_profiles_title": {
         "message": "Profiles"
     },
     "usage_profiles_body": {
-        "message": "Create one profile per environment (Work, Home, Travel). Use the bar at the top of this page: + New to create, Rename / Duplicate / Delete to manage, Set Active to apply the selected profile to Chrome."
+        "message": "Create one profile per environment (Work, Home, Travel). Use the bar at the top of this page: + New to create, Rename / Duplicate / Delete to manage. Switch the active profile from the popup."
     },
     "usage_modes_title": {
-        "message": "Active Mode"
+        "message": "Proxy Types"
     },
     "usage_modes_body": {
-        "message": "Every profile has its own Active Mode — the proxy type Chrome uses when the profile is selected. The Active Mode tab shows only modes you have configured. Direct, System, and Auto Detect (WPAD) are always available."
+        "message": "Each profile remembers which proxy type it's using. The popup lists Direct plus every HTTP / HTTPS / SOCKS / PAC entry you've filled in under the other tabs; System and Auto Detect (WPAD) sit behind a \"More\" row."
     },
     "usage_servers_title": {
         "message": "Server Configuration"
@@ -213,6 +216,6 @@
         "message": "Switching Profiles"
     },
     "usage_switching_body": {
-        "message": "Click the toolbar icon to open the popup, then click any profile to activate it. The profile's Active Mode is applied to Chrome immediately."
+        "message": "Click the toolbar icon to open the popup. Click a profile to expand it, then click a proxy type — that profile becomes active and the proxy is applied to Chrome immediately."
     }
 }

@@ -13,7 +13,6 @@
         <span class="profile-bar-heading">Profiles</span>
         <select id="profile-select"></select>
         <span id="active-indicator" data-i18n-content="profile_active_indicator">(active)</span>
-        <button id="profile-set-active" data-i18n-content="set_active">Set Active</button>
         <span class="profile-bar-spacer"></span>
         <button id="profile-new" class="btn-primary" data-i18n-content="new_profile">New</button>
         <span class="profile-bar-divider" aria-hidden="true"></span>
@@ -31,9 +30,6 @@
             <div class="nav-section-label" data-i18n-content="configure">Configure</div>
             <ul class="menu">
                 <li class="selected">
-                    <a href="#mode-config" data-i18n-content="active_mode">Active Mode</a>
-                </li>
-                <li>
                     <a href="#general" data-i18n-content="General">General</a>
                 </li>
                 <li>
@@ -65,27 +61,8 @@
         <!-- ======== Main Content ======== -->
         <div class="mainview view">
 
-            <!-- ======== Active Mode ======== -->
-            <div id="mode-config" class="selected">
-                <header><h1 data-i18n-content="active_mode">Active Mode</h1></header>
-                <div class="content">
-                    <section>
-                        <div class="mode-radios">
-                            <label data-mode="direct"><input type="radio" name="mode" id="mode-direct" value="direct"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="direct_proxy">Direct</span></label>
-                            <label data-mode="system"><input type="radio" name="mode" id="mode-system" value="system"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="system_proxy">System</span></label>
-                            <label data-mode="auto_detect"><input type="radio" name="mode" id="mode-auto_detect" value="auto_detect"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="auto_detect_set">Auto Detect</span></label>
-                            <label data-mode="http"><input type="radio" name="mode" id="mode-http" value="http"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="http_proxy_set">HTTP Proxy</span></label>
-                            <label data-mode="https"><input type="radio" name="mode" id="mode-https" value="https"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="https_proxy_set">HTTPS Proxy</span></label>
-                            <label data-mode="socks"><input type="radio" name="mode" id="mode-socks" value="socks"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="socks_proxy_set">SOCKS Proxy</span></label>
-                            <label data-mode="pac_url"><input type="radio" name="mode" id="mode-pac_url" value="pac_url"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="pac_url_set">PAC URL</span></label>
-                            <label data-mode="pac_data"><input type="radio" name="mode" id="mode-pac_data" value="pac_data"><span class="mode-icon"></span><span class="mode-label" data-i18n-content="pac_data_set">PAC Script</span></label>
-                        </div>
-                    </section>
-                </div>
-            </div>
-
             <!-- ======== General ======== -->
-            <div id="general">
+            <div id="general" class="selected">
                 <header><h1 data-i18n-content="proxy_servers">Proxy Servers</h1></header>
                 <div class="content">
                     <h3 data-i18n-content="proxy_servers">Server Configuration</h3>
@@ -227,22 +204,22 @@
                 <div class="content">
                     <h3 data-i18n-content="usage_overview_title">Overview</h3>
                     <section>
-                        <p data-i18n-content="usage_overview_body">Proxy Helper switches Chrome's proxy independently of the system proxy. Each profile holds a complete proxy configuration. Click a profile in the popup to activate it.</p>
+                        <p data-i18n-content="usage_overview_body">Proxy Helper switches Chrome's proxy independently of the system proxy. Each profile holds a complete proxy configuration; pick a profile and a proxy type from the popup to apply it.</p>
                     </section>
 
                     <h3 data-i18n-content="usage_profiles_title">Profiles</h3>
                     <section>
-                        <p data-i18n-content="usage_profiles_body">Create one profile per environment (Work, Home, Travel). Use the bar at the top of this page: + New to create, Rename / Duplicate / Delete to manage, Set Active to apply the selected profile to Chrome.</p>
+                        <p data-i18n-content="usage_profiles_body">Create one profile per environment (Work, Home, Travel). Use the bar at the top of this page: + New to create, Rename / Duplicate / Delete to manage. Switch the active profile from the popup.</p>
                     </section>
 
                     <h3 data-i18n-content="usage_switching_title">Switching Profiles</h3>
                     <section>
-                        <p data-i18n-content="usage_switching_body">Click the toolbar icon to open the popup, then click any profile to activate it. The profile's Active Mode is applied to Chrome immediately.</p>
+                        <p data-i18n-content="usage_switching_body">Click the toolbar icon to open the popup. Click a profile to expand it, then click a proxy type — that profile becomes active and the proxy is applied to Chrome immediately.</p>
                     </section>
 
-                    <h3 data-i18n-content="usage_modes_title">Active Mode</h3>
+                    <h3 data-i18n-content="usage_modes_title">Proxy Types</h3>
                     <section>
-                        <p data-i18n-content="usage_modes_body">Every profile has its own Active Mode — the proxy type Chrome uses when the profile is selected. The Active Mode tab shows only modes you have configured. Direct, System, and Auto Detect (WPAD) are always available.</p>
+                        <p data-i18n-content="usage_modes_body">Each profile remembers which proxy type it's using. The popup lists Direct plus every HTTP / HTTPS / SOCKS / PAC entry you've filled in under the other tabs; System and Auto Detect (WPAD) sit behind a "More" row.</p>
                     </section>
 
                     <h3 data-i18n-content="usage_servers_title">Server Configuration</h3>

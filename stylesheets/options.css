@@ -272,15 +272,13 @@ html {
   vertical-align: -1px;
 }
 
-.profile-bar .btn-primary,
-#profile-set-active {
+.profile-bar .btn-primary {
   background: var(--accent-button);
   color: #ffffff;
   border-color: var(--accent-button);
 }
 
-.profile-bar .btn-primary:hover,
-#profile-set-active:hover {
+.profile-bar .btn-primary:hover {
   background: var(--accent-button-hover);
   color: #ffffff;
   border-color: var(--accent-button-hover);
@@ -536,104 +534,6 @@ section > div {
 
 section > div:last-child {
   margin-bottom: 0;
-}
-
-/* =============================================
-   Mode tiles (Active Mode picker)
-   ============================================= */
-.mode-radios {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 8px;
-  margin-top: 0;
-}
-
-.mode-radios label {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
-  border: 1px solid var(--border-input);
-  border-radius: var(--radius-sm);
-  background: var(--input-bg);
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 550;
-  color: var(--text-secondary);
-  transition:
-    background var(--duration) var(--ease),
-    border-color var(--duration) var(--ease),
-    color var(--duration) var(--ease),
-    transform 100ms var(--ease);
-  user-select: none;
-}
-
-.mode-radios label:hover {
-  border-color: var(--border-input-hover);
-  color: var(--text-primary);
-  background: var(--surface-hover);
-}
-
-.mode-radios label:active {
-  transform: translateY(0.5px);
-}
-
-.mode-radios input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-  width: 0;
-  height: 0;
-  margin: 0;
-}
-
-.mode-radios .mode-icon {
-  width: 18px;
-  height: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: var(--text-tertiary);
-  transition: color var(--duration) var(--ease);
-}
-
-.mode-radios .mode-icon svg {
-  width: 18px;
-  height: 18px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.mode-radios .mode-label {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.mode-radios label:hover .mode-icon {
-  color: var(--text-secondary);
-}
-
-.mode-radios label:has(input:checked) {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-  color: var(--accent);
-  font-weight: 650;
-}
-
-.mode-radios label:has(input:checked) .mode-icon {
-  color: var(--accent);
-}
-
-.mode-radios label:focus-within {
-  outline: none;
-  box-shadow: var(--shadow-focus);
-  border-color: var(--accent);
 }
 
 /* =============================================

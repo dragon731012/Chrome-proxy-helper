@@ -146,6 +146,9 @@
     "config_proxy" : {
         "message" : "代理配置"
     },
+    "more_modes": {
+        "message": "更多"
+    },
     "General": {
         "message" : "常规"
     },
@@ -231,19 +234,19 @@
         "message": "概览"
     },
     "usage_overview_body": {
-        "message": "Proxy Helper 独立于系统代理设置 Chrome 的代理。每个配置(profile)保存一组完整的代理设置，在弹窗中点击任一配置即可激活。"
+        "message": "Proxy Helper 独立于系统代理设置 Chrome 的代理。每个配置(profile)保存一组完整的代理设置；在弹窗中选择一个配置和一种代理类型即可应用。"
     },
     "usage_profiles_title": {
         "message": "配置(Profile)"
     },
     "usage_profiles_body": {
-        "message": "为每个使用场景创建一个配置(如工作、家庭、出行)。使用本页顶部的工具栏: + New 新建, Rename / Duplicate / Delete 管理已有配置, Set Active 将所选配置应用到 Chrome。"
+        "message": "为每个使用场景创建一个配置(如工作、家庭、出行)。使用本页顶部的工具栏: + New 新建, Rename / Duplicate / Delete 管理已有配置。在弹窗中切换当前生效的配置。"
     },
     "usage_modes_title": {
-        "message": "激活模式"
+        "message": "代理类型"
     },
     "usage_modes_body": {
-        "message": "每个配置拥有自己的激活模式 — 配置被选中时 Chrome 使用的代理类型。激活模式标签页只显示已配置的模式。Direct、System 和 Auto Detect (WPAD) 始终可用。"
+        "message": "每个配置会记住自己当前使用的代理类型。弹窗中列出 Direct 以及你在其他标签页里填好的每一项 HTTP / HTTPS / SOCKS / PAC 设置；System 和 Auto Detect (WPAD) 收在「更多」一行里。"
     },
     "usage_servers_title": {
         "message": "服务器设置"
@@ -279,6 +282,6 @@
         "message": "切换配置"
     },
     "usage_switching_body": {
-        "message": "点击工具栏扩展图标打开弹窗，再点击任一配置即可激活，所选配置的激活模式会立即应用到 Chrome。"
+        "message": "点击工具栏扩展图标打开弹窗。点击某个配置将其展开，再点击一种代理类型 — 该配置随即生效，代理立即应用到 Chrome。"
     }
 }

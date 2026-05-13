@@ -53,6 +53,24 @@ function modeLabel(mode) {
     return key ? i18nMessage(key, mode) : mode;
 }
 
+// The proxy entries this profile actually has filled in, in display order.
+// 'socks' is a single UI entry; callers resolve it to the profile's socks_type.
+// (Direct / System / Auto Detect aren't here — they're always offered.)
+function configuredModes(p) {
+    var modes = [];
+    if (p.http_host && p.http_port) modes.push('http');
+    if (p.https_host && p.https_port) modes.push('https');
+    if (p.socks_host && p.socks_port) modes.push('socks');
+    var pacProto = (p.pac_type || '').split(':')[0];
+    if (p.pac_script_url && p.pac_script_url[pacProto]) modes.push('pac_url');
+    if (p.pac_data) modes.push('pac_data');
+    return modes;
+}
+
+function resolveMode(p, mode) {
+    return mode === 'socks' ? (p && p.socks_type) || 'socks5' : mode;
+}
+
 function _profileNewId() {
     return 'p_' + Math.random().toString(36).slice(2, 9);
 }
@@ -299,5 +317,11 @@ function applyMode(id, mode, cb) {
 function setActiveAndApply(id, cb) {
     setActiveProfile(id, function() {
         applyProfile(id, cb);
+    });
+}
+
+function setActiveAndApplyMode(id, mode, cb) {
+    setActiveProfile(id, function() {
+        applyMode(id, mode, cb);
     });
 }

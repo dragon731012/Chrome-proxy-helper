@@ -1,6 +1,8 @@
 // Chrome Proxy helper - options page
 // Profile-aware: every form binds to the *editing* profile in #profile-select.
-// Saves silently unless the editing profile is also the active one.
+// The active proxy type is chosen from the popup, not here; this page only
+// edits a profile's hosts/PAC/bypass/auth. Saves silently unless the editing
+// profile is also the active one, in which case the change is re-applied.
 
 var currentEditingId = null;
 var activeProfileId = null;
@@ -17,27 +19,7 @@ function refreshProfileSelect() {
 }
 
 function updateActiveBadge() {
-    var isActive = currentEditingId === activeProfileId;
-    $('#active-indicator').toggle(isActive);
-    $('#profile-set-active').toggle(!isActive);
-}
-
-function availableModes(p) {
-    var avail = { direct: true, system: true, auto_detect: true };
-    if (p.http_host && p.http_port) avail.http = true;
-    if (p.https_host && p.https_port) avail.https = true;
-    if (p.socks_host && p.socks_port) avail.socks = true;
-    if (p.pac_data) avail.pac_data = true;
-    var pacProto = (p.pac_type || '').split(':')[0];
-    if (p.pac_script_url && p.pac_script_url[pacProto]) avail.pac_url = true;
-    return avail;
-}
-
-function applyModeRadioVisibility(p) {
-    var avail = availableModes(p);
-    $('.mode-radios label[data-mode]').each(function() {
-        $(this).toggle(!!avail[$(this).attr('data-mode')]);
-    });
+    $('#active-indicator').toggle(currentEditingId === activeProfileId);
 }
 
 function loadProxyDataFor(id) {
@@ -65,12 +47,6 @@ function loadProxyDataFor(id) {
     $('#socks5').prop('checked', p.socks_type === 'socks5');
     $('#socks4').prop('checked', p.socks_type === 'socks4');
     $('#china-list').prop('checked', p.internal === 'china');
-
-    var radioMode = (p.mode === 'socks4' || p.mode === 'socks5') ? 'socks' : (p.mode || 'direct');
-    $('input[name="mode"]').prop('checked', false);
-    $('#mode-' + radioMode).prop('checked', true);
-
-    applyModeRadioVisibility(p);
 }
 
 function readFormIntoProfile(p) {
@@ -94,13 +70,6 @@ function readFormIntoProfile(p) {
 
     p.internal = $('#china-list').is(':checked') ? 'china' : '';
 
-    var modeChoice = $('input[name="mode"]:checked').val();
-    if (modeChoice === 'socks') {
-        p.mode = p.socks_type || 'socks5';
-    } else if (modeChoice) {
-        p.mode = modeChoice;
-    }
-
     try {
         var pacType = (p.pac_type || 'file://').split(':')[0];
         if (!p.pac_script_url) p.pac_script_url = { http: '', https: '', file: '' };
@@ -116,7 +85,6 @@ function save() {
     if (!p) return;
 
     readFormIntoProfile(p);
-    applyModeRadioVisibility(p);
     saveProfile(currentEditingId, p, function() {
         if (currentEditingId === activeProfileId) {
             applyProfile(currentEditingId);
@@ -140,9 +108,8 @@ function reloadAndRender(selectId, cb) {
 }
 
 function onSelectProfile() {
-    var id = $('#profile-select').val();
-    currentEditingId = id;
-    loadProxyDataFor(id);
+    currentEditingId = $('#profile-select').val();
+    loadProxyDataFor(currentEditingId);
     updateActiveBadge();
 }
 
@@ -182,17 +149,8 @@ function onDeleteProfile() {
         return;
     }
     if (!window.confirm(i18nMessage('delete_profile_confirm', 'Delete this profile? This cannot be undone.'))) return;
-    var idToDelete = currentEditingId;
-    deleteProfile(idToDelete, function(newActive) {
+    deleteProfile(currentEditingId, function(newActive) {
         reloadAndRender(newActive);
-    });
-}
-
-function onSetActive() {
-    if (!currentEditingId) return;
-    setActiveAndApply(currentEditingId, function() {
-        activeProfileId = currentEditingId;
-        updateActiveBadge();
     });
 }
 
@@ -217,7 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
     $('#profile-rename').on('click', onRenameProfile);
     $('#profile-duplicate').on('click', onDuplicateProfile);
     $('#profile-delete').on('click', onDeleteProfile);
-    $('#profile-set-active').on('click', onSetActive);
 
     $('.mainview input, .mainview textarea, .mainview select').not('#pac-type').on('change', save);
 
