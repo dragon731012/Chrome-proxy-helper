@@ -12,6 +12,7 @@ var DEFAULT_PROFILE_FIELDS = {
     https_host: '', https_port: '',
     socks_host: '', socks_port: '', socks_type: 'socks5',
     bypasslist: '<local>,192.168.0.0/16,172.16.0.0/12,169.254.0.0/16,10.0.0.0/8',
+    proxylist: '',
     proxy_rule: 'singleProxy',
     internal: '',
     auth: { enable: '', user: '', pass: '' },
@@ -309,7 +310,7 @@ function _profileBuildBlacklistPac(profile, chinaList) {
             proxy = 'DIRECT';
     }
 
-    var list = (profile.bypasslist || '').split(',');
+    var list = (profile.proxylist || '').split(',');
     if (profile.internal === 'china' && chinaList && chinaList.length) {
         list = chinaList.concat(list);
     }

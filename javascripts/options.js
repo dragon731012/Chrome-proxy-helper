@@ -35,6 +35,7 @@ function loadProxyDataFor(id) {
     $('#pac-type').val(p.pac_type || 'file://');
     $('#pac-data').val(p.pac_data || '');
     $('#bypasslist').val(p.bypasslist || '');
+    $('#proxylist').val(p.proxylist || '');
     $('#proxy-rule').val(p.proxy_rule || 'singleProxy');
     $('#username').val((p.auth && p.auth.user) || '');
     $('#password').val((p.auth && p.auth.pass) || '');
@@ -49,17 +50,13 @@ function loadProxyDataFor(id) {
     $('#china-list').prop('checked', p.internal === 'china');
 
     $('#rules-mode').val(p.rules_mode === 'Blacklist' ? 'Blacklist' : 'Whitelist');
-    applyRulesModeText($('#rules-mode').val());
+    applyRulesModeUI($('#rules-mode').val());
 }
 
-function applyRulesModeText(mode) {
-    var titleKey = mode === 'Blacklist' ? 'config_proxylist' : 'config_bypasslist';
-    var hintKey  = mode === 'Blacklist' ? 'domain_in_proxy'  : 'domain_in_bypasslist';
-    $('#rules-list-title').text(i18nMessage(titleKey, mode === 'Blacklist' ? 'Proxy List' : 'Bypass List'));
-    $('#rules-list-hint').text(i18nMessage(hintKey,
-        mode === 'Blacklist'
-            ? 'Only domains in this list will go through the proxy.'
-            : 'Domains in the bypass list will never use a proxy.'));
+function applyRulesModeUI(mode) {
+    var blacklist = mode === 'Blacklist';
+    $('.rules-whitelist').toggle(!blacklist);
+    $('.rules-blacklist').toggle(blacklist);
 }
 
 function readFormIntoProfile(p) {
@@ -72,6 +69,7 @@ function readFormIntoProfile(p) {
     p.pac_type = $('#pac-type').val() || 'file://';
     p.pac_data = $('#pac-data').val() || '';
     p.bypasslist = $('#bypasslist').val() || '';
+    p.proxylist = $('#proxylist').val() || '';
     p.proxy_rule = $('#proxy-rule').val() || 'singleProxy';
 
     if (!p.auth) p.auth = { enable: '', user: '', pass: '' };
@@ -193,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
     $('.mainview input, .mainview textarea, .mainview select').not('#pac-type').on('change', save);
 
     $('#rules-mode').on('change', function() {
-        applyRulesModeText($('#rules-mode').val());
+        applyRulesModeUI($('#rules-mode').val());
     });
 
     $('#pac-type').on('change', function() {
