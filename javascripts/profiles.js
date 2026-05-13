@@ -281,7 +281,7 @@ function _profileBuildConfig(p, chinaList) {
             };
         default:
             if (p.rules_mode === 'Blacklist') {
-                return _profileBuildBlacklistPac(p, chinaList);
+                return _profileBuildBlacklistPac(p);
             }
             return _profileBuildFixedServers(p, chinaList);
     }
@@ -290,7 +290,8 @@ function _profileBuildConfig(p, chinaList) {
 // Chrome's proxy API only supports a bypass list (whitelist), so Blacklist mode
 // is implemented as a synthesized PAC script: requests whose host matches the
 // list go through the configured proxy, everything else goes DIRECT.
-function _profileBuildBlacklistPac(profile, chinaList) {
+// China list is whitelist-only and intentionally ignored here.
+function _profileBuildBlacklistPac(profile) {
     var proxy;
     switch (profile.mode) {
         case 'http':
@@ -310,12 +311,10 @@ function _profileBuildBlacklistPac(profile, chinaList) {
             proxy = 'DIRECT';
     }
 
-    var list = (profile.proxylist || '').split(',');
-    if (profile.internal === 'china' && chinaList && chinaList.length) {
-        list = chinaList.concat(list);
-    }
-    list = _profileUniqueArray(
-        list.map(function(s) { return (s || '').trim(); }).filter(Boolean)
+    var list = _profileUniqueArray(
+        (profile.proxylist || '').split(',')
+            .map(function(s) { return (s || '').trim(); })
+            .filter(Boolean)
     );
 
     return { mode: 'pac_script', pacScript: { data: _profileBlacklistPacScript(proxy, list) } };
