@@ -125,6 +125,15 @@
     "Whitelist": {
         "message": "ホワイトリスト"
     },
+    "Blacklist": {
+        "message": "ブラックリスト"
+    },
+    "config_proxylist": {
+        "message": "プロキシリスト"
+    },
+    "domain_in_proxy": {
+        "message": "リストに含まれるドメインのみプロキシを経由します。"
+    },
     "chrome_web_store": {
         "message": "Chrome ウェブストア"
     },

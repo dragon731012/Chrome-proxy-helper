@@ -1,6 +1,12 @@
 ChangeLog
 ===================================================
 
+2026-05-13 (2.1.2)
+    1. Add Rules Mode (Whitelist / Blacklist). In Blacklist mode the rules list
+       becomes a proxy list — only matching domains/IPs go through the proxy,
+       everything else goes DIRECT. Implemented via a synthesized PAC script
+       since chrome.proxy.settings has no native blacklist.
+
 2022-1-5   (1.4.1)
     1. Updated Russian translation
 

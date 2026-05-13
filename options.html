@@ -146,10 +146,20 @@
             <div id="rules">
                 <header><h1 data-i18n-content="Rules">Bypass Rules</h1></header>
                 <div class="content">
-                    <h3 data-i18n-content="config_bypasslist">Bypass List</h3>
+                    <h3 data-i18n-content="rules_mode">Rules Mode</h3>
+                    <section>
+                        <div>
+                            <select id="rules-mode">
+                                <option value="Whitelist" data-i18n-content="Whitelist">Whitelist</option>
+                                <option value="Blacklist" data-i18n-content="Blacklist">Blacklist</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <h3 id="rules-list-title" data-i18n-content="config_bypasslist">Bypass List</h3>
                     <section>
                         <div class="hint-row">
-                            <p data-i18n-content="domain_in_bypasslist">Domains in the bypass list will never use a proxy.
+                            <p id="rules-list-hint" data-i18n-content="domain_in_bypasslist">Domains in the bypass list will never use a proxy.
                             </p>
                             <a href='#' class='tooltip'>
                                     <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>

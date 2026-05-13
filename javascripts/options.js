@@ -47,6 +47,19 @@ function loadProxyDataFor(id) {
     $('#socks5').prop('checked', p.socks_type === 'socks5');
     $('#socks4').prop('checked', p.socks_type === 'socks4');
     $('#china-list').prop('checked', p.internal === 'china');
+
+    $('#rules-mode').val(p.rules_mode === 'Blacklist' ? 'Blacklist' : 'Whitelist');
+    applyRulesModeText($('#rules-mode').val());
+}
+
+function applyRulesModeText(mode) {
+    var titleKey = mode === 'Blacklist' ? 'config_proxylist' : 'config_bypasslist';
+    var hintKey  = mode === 'Blacklist' ? 'domain_in_proxy'  : 'domain_in_bypasslist';
+    $('#rules-list-title').text(i18nMessage(titleKey, mode === 'Blacklist' ? 'Proxy List' : 'Bypass List'));
+    $('#rules-list-hint').text(i18nMessage(hintKey,
+        mode === 'Blacklist'
+            ? 'Only domains in this list will go through the proxy.'
+            : 'Domains in the bypass list will never use a proxy.'));
 }
 
 function readFormIntoProfile(p) {
@@ -69,6 +82,7 @@ function readFormIntoProfile(p) {
     if ($('#socks4').is(':checked')) p.socks_type = 'socks4';
 
     p.internal = $('#china-list').is(':checked') ? 'china' : '';
+    p.rules_mode = $('#rules-mode').val() === 'Blacklist' ? 'Blacklist' : 'Whitelist';
 
     try {
         var pacType = (p.pac_type || 'file://').split(':')[0];
@@ -177,6 +191,10 @@ document.addEventListener('DOMContentLoaded', function() {
     $('#profile-delete').on('click', onDeleteProfile);
 
     $('.mainview input, .mainview textarea, .mainview select').not('#pac-type').on('change', save);
+
+    $('#rules-mode').on('change', function() {
+        applyRulesModeText($('#rules-mode').val());
+    });
 
     $('#pac-type').on('change', function() {
         var type = $('#pac-type').val().split(':')[0];

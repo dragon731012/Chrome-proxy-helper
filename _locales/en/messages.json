@@ -65,6 +65,21 @@
     "domain_in_bypasslist": {
         "message": "Domains in the bypass list will never use a proxy."
     },
+    "config_proxylist": {
+        "message": "Proxy List"
+    },
+    "domain_in_proxy": {
+        "message": "Only domains in this list will go through the proxy."
+    },
+    "rules_mode": {
+        "message": "Rules Mode"
+    },
+    "Whitelist": {
+        "message": "Whitelist"
+    },
+    "Blacklist": {
+        "message": "Blacklist"
+    },
     "use_predefine_list": {
         "message": "Use built-in bypass list"
     },
