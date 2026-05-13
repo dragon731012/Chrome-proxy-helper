@@ -233,6 +233,9 @@
     "usage": {
         "message": "Использование"
     },
+    "changelog": {
+        "message": "История изменений"
+    },
     "usage_overview_title": {
         "message": "Обзор"
     },

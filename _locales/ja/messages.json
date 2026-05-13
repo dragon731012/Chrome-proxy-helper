@@ -185,6 +185,9 @@
     "usage": {
         "message": "使い方"
     },
+    "changelog": {
+        "message": "更新履歴"
+    },
     "usage_overview_title": {
         "message": "概要"
     },

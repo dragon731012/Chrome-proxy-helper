@@ -48,6 +48,9 @@
                 <li>
                     <a href="#usage" data-i18n-content="usage">Usage</a>
                 </li>
+                <li>
+                    <a href="#changelog" data-i18n-content="changelog">Changelog</a>
+                </li>
             </ul>
 
             <div class="nav-section-label" data-i18n-content="info">Info</div>
@@ -277,6 +280,152 @@
                     <h3 data-i18n-content="usage_shortcuts_title">Keyboard Shortcuts</h3>
                     <section>
                         <p data-i18n-content="usage_shortcuts_body">Alt+P cycles to the next profile. Alt+O opens this options page. Customize the shortcuts at chrome://extensions/shortcuts.</p>
+                    </section>
+                </div>
+            </div>
+
+            <!-- ======== Changelog ======== -->
+            <div id="changelog">
+                <header><h1 data-i18n-content="changelog">Changelog</h1></header>
+                <div class="content">
+                    <h3>v2.1.2 — 2026-05-13</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Add proxy Rules Mode (Whitelist / Blacklist). In Blacklist mode the rules list becomes a proxy list — only matching hosts go through the proxy, everything else goes direct. Implemented as a synthesized PAC script since <code>chrome.proxy.settings</code> has no native blacklist.</li>
+                            <li>Store the blacklist (proxy list) separately from the whitelist (bypass list); each list keeps its own content when switching modes.</li>
+                            <li>China List now applies to Whitelist mode only.</li>
+                            <li>Compact the Rules Mode UI to an inline label + select.</li>
+                            <li>Help → Usage rewritten to describe Whitelist/Blacklist; new Changelog panel.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.4.1 — 2022-01-05</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Updated Russian translation.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.3.9 — 2021-12-09</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Fix popup.html.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.3.8 — 2021-12-07</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Fix whitelist.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.3.7 — 2021-11-30</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>UI improvement.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.3.6 — 2021-11-27</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Add PAC URL support.</li>
+                        </ul>
+                    </section>
+
+                    <h3>2021-07-27</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Use PAC data instead of PAC URL.</li>
+                            <li>Update jQuery to 3.6.0.</li>
+                            <li>Update Russian translation.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.3.3 — 2020-12-01</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Bug fixes.</li>
+                            <li>UI improvements.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.3.0 — 2020-11-23</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Support QUIC proxy.</li>
+                            <li>Remove <code>file://</code> scheme in PAC mode (Chrome dropped <code>file://</code> support in extensions).</li>
+                            <li>Bug fixes.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2.7 — 2017-12-14</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Larger font size.</li>
+                            <li>Fix HTML errors.</li>
+                            <li>Code refactor.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2.6 — 2014-08-12</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Rewrite UI.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2.5 — 2014-06-30</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Add Alt+O keyboard shortcut to open the options page.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2.4 — 2014-03-10</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Support extension settings synchronization.</li>
+                            <li>Update UI.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2.3 — 2014-02-26</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Auto-update the bundled China bypass list.</li>
+                            <li>UI tuning (better look on macOS).</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2.2 — 2013-12-18</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Add proxy auto-detect mode (WPAD).</li>
+                            <li>Import existing proxy settings automatically.</li>
+                            <li>Bug fixes.</li>
+                            <li>UI update.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2 — 2013-07-25</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Add proxy authentication support.</li>
+                            <li>Reload proxy settings automatically after save.</li>
+                            <li>Add default China bypass list.</li>
+                            <li>Completely rewritten UI.</li>
+                            <li>Chinese language support.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.1.4 — 2012-12-07</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Support Direct mode — connect without using a proxy.</li>
+                            <li>UI updates and bug fixes.</li>
+                        </ul>
                     </section>
                 </div>
             </div>

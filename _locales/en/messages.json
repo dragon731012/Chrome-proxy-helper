@@ -179,6 +179,9 @@
     "usage": {
         "message": "Usage"
     },
+    "changelog": {
+        "message": "Changelog"
+    },
     "usage_overview_title": {
         "message": "Overview"
     },
