@@ -174,7 +174,7 @@
         "message": "在黑名单里的域名将使用代理"
     },
     "rules_mode": {
-        "message": "设置规则模式"
+        "message": "规则模式:"
     },
     "Whitelist": {
         "message": "白名单"
@@ -230,6 +230,9 @@
     "usage": {
         "message": "使用"
     },
+    "changelog": {
+        "message": "更新"
+    },
     "usage_overview_title": {
         "message": "概览"
     },
@@ -260,11 +263,11 @@
     "usage_pac_body": {
         "message": "PAC 脚本根据 URL 决定使用哪个代理。在 PAC Script 直接粘贴脚本内容，或在 PAC URL 填入托管脚本的地址。"
     },
-    "usage_bypass_title": {
-        "message": "Bypass 列表"
+    "usage_rules_title": {
+        "message": "规则：白名单与黑名单"
     },
-    "usage_bypass_body": {
-        "message": "不走代理的域名和 IP 范围。条目以逗号分隔。例如: <local>, 192.168.0.0/16, *.intranet.com。勾选 China List 可同时跳过 *.cn 域名。"
+    "usage_rules_body": {
+        "message": "规则与常规的 HTTP / HTTPS / SOCKS 代理模式配合使用，与 PAC URL / PAC Script 模式互斥（PAC 模式有自己的路由逻辑）。白名单（默认）：除了命中 Bypass 列表的请求，其他都走代理。黑名单：只有命中代理列表的请求走代理，其他直连——通过自动生成的 PAC 脚本实现。两个列表都以逗号分隔，支持裸域名（example.com 也覆盖子域名）、通配符（*.foo.com）、CIDR（192.168.0.0/16）和 <local>。China List 只对白名单生效。"
     },
     "usage_auth_title": {
         "message": "认证"

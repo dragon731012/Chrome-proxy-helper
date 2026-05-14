@@ -120,10 +120,19 @@
         "message" : "プロキシーサーバー"
     },
     "rules_mode": {
-        "message": "ルールのモード"
+        "message": "ルールモード:"
     },
     "Whitelist": {
         "message": "ホワイトリスト"
+    },
+    "Blacklist": {
+        "message": "ブラックリスト"
+    },
+    "config_proxylist": {
+        "message": "プロキシリスト"
+    },
+    "domain_in_proxy": {
+        "message": "リストに含まれるドメインのみプロキシを経由します。"
     },
     "chrome_web_store": {
         "message": "Chrome ウェブストア"
@@ -176,6 +185,9 @@
     "usage": {
         "message": "使い方"
     },
+    "changelog": {
+        "message": "更新履歴"
+    },
     "usage_overview_title": {
         "message": "概要"
     },
@@ -206,11 +218,11 @@
     "usage_pac_body": {
         "message": "PAC スクリプトは URL ごとに使用するプロキシを決定します。PAC Script にスクリプト本文を直接貼り付けるか、PAC URL に外部スクリプトのアドレスを指定します。"
     },
-    "usage_bypass_title": {
-        "message": "バイパスリスト"
+    "usage_rules_title": {
+        "message": "ルール：ホワイトリストとブラックリスト"
     },
-    "usage_bypass_body": {
-        "message": "プロキシを経由させないドメインと IP 範囲です。エントリはカンマで区切ります。例: <local>, 192.168.0.0/16, *.intranet.com。China List を有効にすると *.cn ドメインもバイパスされます。"
+    "usage_rules_body": {
+        "message": "ルールは通常の HTTP / HTTPS / SOCKS プロキシモードと組み合わせて動作し、PAC URL / PAC Script モードでは無視されます（PAC モードは独自のルーティングロジックを持つため）。ホワイトリスト（既定）：バイパスリストに一致するもの以外、すべての通信がプロキシを経由します。ブラックリスト：プロキシリストに一致する通信のみプロキシを経由し、その他は直接接続します（自動生成された PAC スクリプトで実現）。どちらのリストもカンマ区切りで、裸のホスト名（example.com はサブドメインも含む）、ワイルドカード（*.foo.com）、CIDR（192.168.0.0/16）、<local> を受け付けます。China List はホワイトリストモードでのみ有効です。"
     },
     "usage_auth_title": {
         "message": "認証"
