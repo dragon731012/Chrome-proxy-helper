@@ -1,6 +1,53 @@
 ChangeLog
 ===================================================
 
+2026-05-13 (2.1.2)
+    1. Add Rules Mode (Whitelist / Blacklist). In Blacklist mode the rules list
+       becomes a proxy list — only matching domains/IPs go through the proxy,
+       everything else goes DIRECT. Implemented via a synthesized PAC script
+       since chrome.proxy.settings has no native blacklist.
+    2. Store the blacklist (proxy list) independently of the whitelist (bypass
+       list); each list keeps its own content when switching modes.
+    3. China List now applies to Whitelist mode only.
+    4. Add Help -> Changelog panel.
+
+2026-05-13 (2.1.1)
+    1. Move proxy-type switching from options into the popup.
+    2. Refresh popup/options UI: teal accent, dark mode, mode-icon tiles.
+    3. Polish options page: stronger Profiles bar, subtler sidebar mark.
+    4. Tone down popup header logo.
+    5. Fix bypass-list hint icon wrapping to its own line.
+    6. Translate profile-bar strings to ja and ru.
+
+2026-05-08 (2.1.0)
+    1. Add multi-profile support: each profile holds a complete proxy
+       configuration; switch the active profile from the popup or via Alt+P.
+    2. Add Help -> Usage section in options page.
+    3. Translate the Usage section to ja and ru.
+
+2026-03-12 (2.0.4)
+    1. Drop QUIC proxy support (Chrome no longer exposes it to extensions).
+
+2026-03-11 (2.0.3)
+    1. Further extension UI enhancements.
+    2. Add missing ja translations.
+
+2026-03-09 (2.0.2)
+    1. Multiple popup UI enhancements.
+    2. Better bypass-list hint message.
+    3. Add missing i18n strings.
+
+2025-12-31 (2.0.1)
+    1. Add Go proxy quick-link to the options menu.
+    2. Add example.pac and PAC-script proxy details in README / FAQ.
+    3. Refresh ru and ja translations.
+    4. Improve hr style.
+
+2024-08-26 (2.0.0)
+    1. Migrate the extension from Manifest V2 to Manifest V3.
+    2. Add automatic persistent-data migration when upgrading from MV2.
+    3. Bump minimum Chrome version to 88 (required for MV3).
+
 2022-1-5   (1.4.1)
     1. Updated Russian translation
 

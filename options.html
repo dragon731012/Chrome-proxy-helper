@@ -55,6 +55,9 @@
                 <li>
                     <a href="#about" data-i18n-content="About">About</a>
                 </li>
+                <li>
+                    <a href="#changelog" data-i18n-content="changelog">Changelog</a>
+                </li>
             </ul>
         </div>
 
@@ -146,31 +149,63 @@
             <div id="rules">
                 <header><h1 data-i18n-content="Rules">Bypass Rules</h1></header>
                 <div class="content">
-                    <h3 data-i18n-content="config_bypasslist">Bypass List</h3>
                     <section>
-                        <div class="hint-row">
-                            <p data-i18n-content="domain_in_bypasslist">Domains in the bypass list will never use a proxy.
-                            </p>
-                            <a href='#' class='tooltip'>
-                                    <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                                    <span>
-                                        <strong>Use comma to separate, examples: </strong><br>
-                                        192.168.1.1/16,*.foobar.com,*foobar.com:99
-                                    </span>
-                            </a>
-                        </div>
                         <div>
-                            <textarea id="bypasslist" cols="55" rows="10" placeholder="192.168.1.1/16, *.foobar.com, *foobar.com:99, https://x.*.y.com:99"></textarea>
+                            <span class="field_label" data-i18n-content="rules_mode">Rules Mode:</span>
+                            <select id="rules-mode">
+                                <option value="Whitelist" data-i18n-content="Whitelist">Whitelist</option>
+                                <option value="Blacklist" data-i18n-content="Blacklist">Blacklist</option>
+                            </select>
                         </div>
                     </section>
 
-                    <h4 data-i18n-content="use_predefine_list">Built-in bypass list</h4>
-                    <section>
-                        <div class="checkbox">
-                            <input id='china-list' type="checkbox"/>
-                            <span data-i18n-content="china_list">China List</span>
-                        </div>
-                    </section>
+                    <div class="rules-whitelist">
+                        <h3 data-i18n-content="config_bypasslist">Bypass List</h3>
+                        <section>
+                            <div class="hint-row">
+                                <p data-i18n-content="domain_in_bypasslist">Domains in the bypass list will never use a proxy.
+                                </p>
+                                <a href='#' class='tooltip'>
+                                        <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                        <span>
+                                            <strong>Use comma to separate, examples: </strong><br>
+                                            192.168.1.1/16,*.foobar.com,*foobar.com:99
+                                        </span>
+                                </a>
+                            </div>
+                            <div>
+                                <textarea id="bypasslist" cols="55" rows="10" placeholder="192.168.1.1/16, *.foobar.com, *foobar.com:99, https://x.*.y.com:99"></textarea>
+                            </div>
+                        </section>
+
+                        <h4 data-i18n-content="use_predefine_list">Built-in bypass list</h4>
+                        <section>
+                            <div class="checkbox">
+                                <input id='china-list' type="checkbox"/>
+                                <span data-i18n-content="china_list">China List</span>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="rules-blacklist">
+                        <h3 data-i18n-content="config_proxylist">Proxy List</h3>
+                        <section>
+                            <div class="hint-row">
+                                <p data-i18n-content="domain_in_proxy">Only domains in this list will go through the proxy.
+                                </p>
+                                <a href='#' class='tooltip'>
+                                        <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                        <span>
+                                            <strong>Use comma to separate, examples: </strong><br>
+                                            192.168.1.1/16,*.foobar.com,*foobar.com:99
+                                        </span>
+                                </a>
+                            </div>
+                            <div>
+                                <textarea id="proxylist" cols="55" rows="10" placeholder="*.google.com, *.x.com, 8.8.8.8/32"></textarea>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </div>
 
@@ -232,9 +267,9 @@
                         <p data-i18n-content="usage_pac_body">PAC scripts decide the proxy per URL. Paste a script inline under PAC Script, or point to a hosted script under PAC URL.</p>
                     </section>
 
-                    <h3 data-i18n-content="usage_bypass_title">Bypass List</h3>
+                    <h3 data-i18n-content="usage_rules_title">Rules: Whitelist &amp; Blacklist</h3>
                     <section>
-                        <p data-i18n-content="usage_bypass_body">Domains and IP ranges that should not use the proxy. Separate entries with commas. Example: &lt;local&gt;, 192.168.0.0/16, *.intranet.com. Enable China List to also bypass *.cn domains.</p>
+                        <p data-i18n-content="usage_rules_body">Rules pair with the regular HTTP / HTTPS / SOCKS proxy modes and are ignored by PAC URL / PAC Script (those modes bring their own routing logic). Whitelist (default): every request uses the proxy except those matching the bypass list. Blacklist: only requests matching the proxy list use the proxy, everything else goes direct — implemented as a generated PAC script. Both lists are comma-separated and accept bare hosts (example.com also covers subdomains), wildcards (*.foo.com), CIDR (192.168.0.0/16), and &lt;local&gt;. China List applies to Whitelist mode only.</p>
                     </section>
 
                     <h3 data-i18n-content="usage_auth_title">Authentication</h3>
@@ -248,7 +283,6 @@
                     </section>
                 </div>
             </div>
-
             <!-- ======== About ======== -->
             <div id="about">
                 <header><h1 data-i18n-content="About">About</h1></header>
@@ -277,6 +311,217 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </section>
+                </div>
+            </div>
+
+
+            <!-- ======== Changelog ======== -->
+            <div id="changelog">
+                <header><h1 data-i18n-content="changelog">Changelog</h1></header>
+                <div class="content">
+                    <h3>v2.1.2 — 2026-05-13</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Add proxy Rules Mode (Whitelist / Blacklist). In Blacklist mode the rules list becomes a proxy list — only matching hosts go through the proxy, everything else goes direct. Implemented as a synthesized PAC script since <code>chrome.proxy.settings</code> has no native blacklist.</li>
+                            <li>Store the blacklist (proxy list) separately from the whitelist (bypass list); each list keeps its own content when switching modes.</li>
+                            <li>China List now applies to Whitelist mode only.</li>
+                            <li>Compact the Rules Mode UI to an inline label + select.</li>
+                            <li>Help → Usage rewritten to describe Whitelist/Blacklist; new Changelog panel.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v2.1.1 — 2026-05-13</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Move proxy-type switching from options into the popup.</li>
+                            <li>Refresh popup/options UI: teal accent, dark mode, mode-icon tiles.</li>
+                            <li>Polish options page: stronger Profiles bar, subtler sidebar mark.</li>
+                            <li>Tone down popup header logo.</li>
+                            <li>Fix bypass-list hint icon wrapping to its own line.</li>
+                            <li>Translate profile-bar strings to ja and ru.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v2.1.0 — 2026-05-08</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Add multi-profile support: each profile holds a complete proxy configuration; switch the active profile from the popup or via <code>Alt+P</code>.</li>
+                            <li>Add Help → Usage section in the options page.</li>
+                            <li>Translate the Usage section to ja and ru.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v2.0.4 — 2026-03-12</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Drop QUIC proxy support (Chrome no longer exposes it to extensions).</li>
+                        </ul>
+                    </section>
+
+                    <h3>v2.0.3 — 2026-03-11</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Further extension UI enhancements.</li>
+                            <li>Add missing ja translations.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v2.0.2 — 2026-03-09</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Multiple popup UI enhancements.</li>
+                            <li>Better bypass-list hint message.</li>
+                            <li>Add missing i18n strings.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v2.0.1 — 2025-12-31</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Add Go proxy quick-link to the options menu.</li>
+                            <li>Add <code>example.pac</code> and PAC-script proxy details in README / FAQ.</li>
+                            <li>Refresh ru and ja translations.</li>
+                            <li>Improve <code>hr</code> style.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v2.0.0 — 2024-08-26</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Migrate the extension from Manifest V2 to Manifest V3.</li>
+                            <li>Add automatic persistent-data migration when upgrading from MV2.</li>
+                            <li>Bump minimum Chrome version to 88 (required for MV3).</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.4.1 — 2022-01-05</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Updated Russian translation.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.3.9 — 2021-12-09</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Fix popup.html.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.3.8 — 2021-12-07</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Fix whitelist.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.3.7 — 2021-11-30</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>UI improvement.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.3.6 — 2021-11-27</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Add PAC URL support.</li>
+                        </ul>
+                    </section>
+
+                    <h3>2021-07-27</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Use PAC data instead of PAC URL.</li>
+                            <li>Update jQuery to 3.6.0.</li>
+                            <li>Update Russian translation.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.3.3 — 2020-12-01</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Bug fixes.</li>
+                            <li>UI improvements.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.3.0 — 2020-11-23</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Support QUIC proxy.</li>
+                            <li>Remove <code>file://</code> scheme in PAC mode (Chrome dropped <code>file://</code> support in extensions).</li>
+                            <li>Bug fixes.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2.7 — 2017-12-14</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Larger font size.</li>
+                            <li>Fix HTML errors.</li>
+                            <li>Code refactor.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2.6 — 2014-08-12</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Rewrite UI.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2.5 — 2014-06-30</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Add Alt+O keyboard shortcut to open the options page.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2.4 — 2014-03-10</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Support extension settings synchronization.</li>
+                            <li>Update UI.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2.3 — 2014-02-26</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Auto-update the bundled China bypass list.</li>
+                            <li>UI tuning (better look on macOS).</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2.2 — 2013-12-18</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Add proxy auto-detect mode (WPAD).</li>
+                            <li>Import existing proxy settings automatically.</li>
+                            <li>Bug fixes.</li>
+                            <li>UI update.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.2 — 2013-07-25</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Add proxy authentication support.</li>
+                            <li>Reload proxy settings automatically after save.</li>
+                            <li>Add default China bypass list.</li>
+                            <li>Completely rewritten UI.</li>
+                            <li>Chinese language support.</li>
+                        </ul>
+                    </section>
+
+                    <h3>v1.1.4 — 2012-12-07</h3>
+                    <section>
+                        <ul class="changelog-entries">
+                            <li>Support Direct mode — connect without using a proxy.</li>
+                            <li>UI updates and bug fixes.</li>
+                        </ul>
                     </section>
                 </div>
             </div>

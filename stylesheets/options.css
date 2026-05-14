@@ -537,6 +537,33 @@ section > div:last-child {
 }
 
 /* =============================================
+   Changelog list
+   ============================================= */
+ul.changelog-entries {
+  margin: 0;
+  padding-left: 20px;
+}
+
+ul.changelog-entries li {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 4px;
+}
+
+ul.changelog-entries li:last-child {
+  margin-bottom: 0;
+}
+
+ul.changelog-entries code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 92%;
+  background: var(--surface-2, rgba(127, 127, 127, 0.12));
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+/* =============================================
    Form labels & inputs
    ============================================= */
 .ip_label,

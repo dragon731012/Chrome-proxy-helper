@@ -35,6 +35,7 @@ function loadProxyDataFor(id) {
     $('#pac-type').val(p.pac_type || 'file://');
     $('#pac-data').val(p.pac_data || '');
     $('#bypasslist').val(p.bypasslist || '');
+    $('#proxylist').val(p.proxylist || '');
     $('#proxy-rule').val(p.proxy_rule || 'singleProxy');
     $('#username').val((p.auth && p.auth.user) || '');
     $('#password').val((p.auth && p.auth.pass) || '');
@@ -47,6 +48,15 @@ function loadProxyDataFor(id) {
     $('#socks5').prop('checked', p.socks_type === 'socks5');
     $('#socks4').prop('checked', p.socks_type === 'socks4');
     $('#china-list').prop('checked', p.internal === 'china');
+
+    var rulesMode = p.rules_mode || 'Whitelist';
+    $('#rules-mode').val(rulesMode);
+    applyRulesModeUI(rulesMode);
+}
+
+function applyRulesModeUI(mode) {
+    $('.rules-whitelist').toggle(mode !== 'Blacklist');
+    $('.rules-blacklist').toggle(mode === 'Blacklist');
 }
 
 function readFormIntoProfile(p) {
@@ -59,6 +69,7 @@ function readFormIntoProfile(p) {
     p.pac_type = $('#pac-type').val() || 'file://';
     p.pac_data = $('#pac-data').val() || '';
     p.bypasslist = $('#bypasslist').val() || '';
+    p.proxylist = $('#proxylist').val() || '';
     p.proxy_rule = $('#proxy-rule').val() || 'singleProxy';
 
     if (!p.auth) p.auth = { enable: '', user: '', pass: '' };
@@ -69,6 +80,7 @@ function readFormIntoProfile(p) {
     if ($('#socks4').is(':checked')) p.socks_type = 'socks4';
 
     p.internal = $('#china-list').is(':checked') ? 'china' : '';
+    p.rules_mode = $('#rules-mode').val() || 'Whitelist';
 
     try {
         var pacType = (p.pac_type || 'file://').split(':')[0];
@@ -177,6 +189,10 @@ document.addEventListener('DOMContentLoaded', function() {
     $('#profile-delete').on('click', onDeleteProfile);
 
     $('.mainview input, .mainview textarea, .mainview select').not('#pac-type').on('change', save);
+
+    $('#rules-mode').on('change', function() {
+        applyRulesModeUI($('#rules-mode').val());
+    });
 
     $('#pac-type').on('change', function() {
         var type = $('#pac-type').val().split(':')[0];
