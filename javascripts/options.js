@@ -49,14 +49,14 @@ function loadProxyDataFor(id) {
     $('#socks4').prop('checked', p.socks_type === 'socks4');
     $('#china-list').prop('checked', p.internal === 'china');
 
-    $('#rules-mode').val(p.rules_mode === 'Blacklist' ? 'Blacklist' : 'Whitelist');
-    applyRulesModeUI($('#rules-mode').val());
+    var rulesMode = p.rules_mode || 'Whitelist';
+    $('#rules-mode').val(rulesMode);
+    applyRulesModeUI(rulesMode);
 }
 
 function applyRulesModeUI(mode) {
-    var blacklist = mode === 'Blacklist';
-    $('.rules-whitelist').toggle(!blacklist);
-    $('.rules-blacklist').toggle(blacklist);
+    $('.rules-whitelist').toggle(mode !== 'Blacklist');
+    $('.rules-blacklist').toggle(mode === 'Blacklist');
 }
 
 function readFormIntoProfile(p) {
@@ -80,7 +80,7 @@ function readFormIntoProfile(p) {
     if ($('#socks4').is(':checked')) p.socks_type = 'socks4';
 
     p.internal = $('#china-list').is(':checked') ? 'china' : '';
-    p.rules_mode = $('#rules-mode').val() === 'Blacklist' ? 'Blacklist' : 'Whitelist';
+    p.rules_mode = $('#rules-mode').val() || 'Whitelist';
 
     try {
         var pacType = (p.pac_type || 'file://').split(':')[0];

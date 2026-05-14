@@ -231,25 +231,23 @@ function _profileSetIcon(mode) {
     try { chrome.action.setIcon({ path: path }); } catch (e) {}
 }
 
+// {type, host, port} for the four fixed-server proxy modes (or null for direct/system/pac/...)
+function _profileEndpoint(profile) {
+    switch (profile.mode) {
+        case 'http':   return { type: 'http',   host: profile.http_host,  port: parseInt(profile.http_port)  };
+        case 'https':  return { type: 'https',  host: profile.https_host, port: parseInt(profile.https_port) };
+        case 'socks4': return { type: 'socks4', host: profile.socks_host, port: parseInt(profile.socks_port) };
+        case 'socks5': return { type: 'socks5', host: profile.socks_host, port: parseInt(profile.socks_port) };
+        default:       return null;
+    }
+}
+
+var _PAC_SCHEME_TOKEN = { http: 'PROXY', https: 'HTTPS', socks4: 'SOCKS', socks5: 'SOCKS5' };
+
 function _profileBuildFixedServers(profile, chinaList) {
     var rule = profile.proxy_rule;
-    var proxy = { type: '', host: '', port: 0 };
-
-    switch (profile.mode) {
-        case 'http':
-            proxy = { type: 'http', host: profile.http_host, port: parseInt(profile.http_port) };
-            if (rule === 'fallbackProxy') rule = 'singleProxy';
-            break;
-        case 'https':
-            proxy = { type: 'https', host: profile.https_host, port: parseInt(profile.https_port) };
-            break;
-        case 'socks4':
-            proxy = { type: 'socks4', host: profile.socks_host, port: parseInt(profile.socks_port) };
-            break;
-        case 'socks5':
-            proxy = { type: 'socks5', host: profile.socks_host, port: parseInt(profile.socks_port) };
-            break;
-    }
+    var proxy = _profileEndpoint(profile) || { type: '', host: '', port: 0 };
+    if (proxy.type === 'http' && rule === 'fallbackProxy') rule = 'singleProxy';
 
     var bypass;
     if (profile.internal === 'china' && chinaList && chinaList.length) {
@@ -292,23 +290,8 @@ function _profileBuildConfig(p, chinaList) {
 // list go through the configured proxy, everything else goes DIRECT.
 // China list is whitelist-only and intentionally ignored here.
 function _profileBuildBlacklistPac(profile) {
-    var proxy;
-    switch (profile.mode) {
-        case 'http':
-            proxy = 'PROXY ' + profile.http_host + ':' + parseInt(profile.http_port);
-            break;
-        case 'https':
-            proxy = 'HTTPS ' + profile.https_host + ':' + parseInt(profile.https_port);
-            break;
-        case 'socks4':
-            proxy = 'SOCKS ' + profile.socks_host + ':' + parseInt(profile.socks_port);
-            break;
-        case 'socks5':
-            proxy = 'SOCKS5 ' + profile.socks_host + ':' + parseInt(profile.socks_port);
-            break;
-        default:
-            proxy = 'DIRECT';
-    }
+    var ep = _profileEndpoint(profile);
+    var proxy = ep ? (_PAC_SCHEME_TOKEN[ep.type] + ' ' + ep.host + ':' + ep.port) : 'DIRECT';
 
     var list = _profileUniqueArray(
         (profile.proxylist || '').split(',')
@@ -353,6 +336,12 @@ function _profileBlacklistPacScript(proxy, patterns) {
         '    return /^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$/.test(s);',
         '}',
         '',
+        'function _endsWithDomain(host, bare) {',
+        '    if (host === bare) return true;',
+        '    var sfx = "." + bare;',
+        '    return host.indexOf(sfx, host.length - sfx.length) !== -1;',
+        '}',
+        '',
         'function _matches(host, pattern) {',
         '    if (!pattern) return false;',
         '    if (pattern === "<local>") return host.indexOf(".") === -1;',
@@ -362,30 +351,23 @@ function _profileBlacklistPacScript(proxy, patterns) {
         '        if (!ip) return false;',
         '        return isInNet(ip, pattern.substring(0, slash), _cidrMask(pattern.substring(slash + 1)));',
         '    }',
-        '    if (pattern.charAt(0) === ".") {',
-        '        var bare = pattern.substring(1);',
-        '        return host === bare || host.indexOf(pattern, host.length - pattern.length) !== -1;',
-        '    }',
-        '    if (pattern.indexOf("*") === -1 && pattern.indexOf("?") === -1) {',
-        '        var suffix = "." + pattern;',
-        '        return host === pattern || host.indexOf(suffix, host.length - suffix.length) !== -1;',
-        '    }',
-        '    // Treat "*.foo.com" as "foo.com OR any subdomain of foo.com".',
-        '    // Plain shExpMatch would skip the apex; users almost always want it included.',
-        '    if (pattern.length >= 2 && pattern.charAt(0) === "*" && pattern.charAt(1) === ".") {',
-        '        var bare = pattern.substring(2);',
-        '        if (bare && bare.indexOf("*") === -1 && bare.indexOf("?") === -1) {',
-        '            var sfx = "." + bare;',
-        '            return host === bare || host.indexOf(sfx, host.length - sfx.length) !== -1;',
-        '        }',
+        '    if (pattern.charAt(0) === ".") return _endsWithDomain(host, pattern.substring(1));',
+        '    if (pattern.indexOf("*") === -1 && pattern.indexOf("?") === -1) return _endsWithDomain(host, pattern);',
+        '    // "*.foo.com" should also match the apex "foo.com" — shExpMatch alone skips it.',
+        '    if (pattern.charAt(0) === "*" && pattern.charAt(1) === ".") {',
+        '        var apex = pattern.substring(2);',
+        '        if (apex && apex.indexOf("*") === -1 && apex.indexOf("?") === -1) return _endsWithDomain(host, apex);',
         '    }',
         '    return shExpMatch(host, pattern);',
         '}',
         '',
+        // Normalize once at load, not per request.
+        'PATTERNS = PATTERNS.map(_stripSchemePort);',
+        '',
         'function FindProxyForURL(url, host) {',
         '    host = (host || "").toLowerCase();',
         '    for (var i = 0; i < PATTERNS.length; i++) {',
-        '        if (_matches(host, _stripSchemePort(PATTERNS[i]))) return PROXY;',
+        '        if (_matches(host, PATTERNS[i])) return PROXY;',
         '    }',
         '    return "DIRECT";',
         '}'
