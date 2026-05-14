@@ -215,8 +215,8 @@
     "delete_profile_confirm": {
         "message": "Удалить этот профиль? Это действие нельзя отменить."
     },
-    "cannot_delete_last_profile": {
-        "message": "Должен существовать хотя бы один профиль."
+    "cannot_delete_active_profile": {
+        "message": "Нельзя удалить активный профиль. Сначала переключитесь на другой профиль во всплывающем окне."
     },
     "profile_name_prompt": {
         "message": "Имя профиля:"

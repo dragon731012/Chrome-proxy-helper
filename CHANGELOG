@@ -1,6 +1,17 @@
 ChangeLog
 ===================================================
 
+2026-05-14 (2.1.3)
+    1. Fix popup mode highlight getting out of sync when the options page was
+       open at the time the popup applied a different mode (e.g. PAC -> SOCKS
+       after toggling Whitelist/Blacklist in options): options held a stale
+       in-memory profile copy and overwrote the popup's mode on the next save.
+       options.save() now does a single read-modify-write against storage so
+       popup-driven mode/activeProfileId changes are preserved.
+    2. Disallow deleting the active profile; show a message instead of
+       auto-promoting another profile. Keeps options as a storage-only surface
+       (popup remains the sole entry point for switching the live proxy).
+
 2026-05-13 (2.1.2)
     1. Add Rules Mode (Whitelist / Blacklist). In Blacklist mode the rules list
        becomes a proxy list — only matching domains/IPs go through the proxy,

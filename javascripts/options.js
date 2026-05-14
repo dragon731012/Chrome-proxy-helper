@@ -93,14 +93,24 @@ function readFormIntoProfile(p) {
 
 function save() {
     if (!currentEditingId) return;
-    var p = allProfiles[currentEditingId];
-    if (!p) return;
-
-    readFormIntoProfile(p);
-    saveProfile(currentEditingId, p, function() {
-        if (currentEditingId === activeProfileId) {
-            applyProfile(currentEditingId);
-        }
+    var id = currentEditingId;
+    // Single read-modify-write: popup may have changed mode / activeProfileId
+    // in storage while this page was open; re-fetch both so the form-merge
+    // doesn't clobber the popup's update.
+    chrome.storage.local.get(['profiles', 'activeProfileId'], function(r) {
+        var profiles = r.profiles || {};
+        var stored = profiles[id];
+        if (!stored) return;
+        readFormIntoProfile(stored);
+        stored.id = id;
+        profiles[id] = stored;
+        var freshActive = r.activeProfileId || null;
+        chrome.storage.local.set({ profiles: profiles }, function() {
+            allProfiles[id] = stored;
+            activeProfileId = freshActive;
+            updateActiveBadge();
+            if (id === freshActive) applyProfile(id);
+        });
     });
 }
 
@@ -156,13 +166,16 @@ function onDuplicateProfile() {
 
 function onDeleteProfile() {
     if (!currentEditingId) return;
-    if (Object.keys(allProfiles).length <= 1) {
-        window.alert(i18nMessage('cannot_delete_last_profile', 'At least one profile must exist.'));
-        return;
-    }
-    if (!window.confirm(i18nMessage('delete_profile_confirm', 'Delete this profile? This cannot be undone.'))) return;
-    deleteProfile(currentEditingId, function(newActive) {
-        reloadAndRender(newActive);
+    var id = currentEditingId;
+    chrome.storage.local.get(['activeProfileId'], function(r) {
+        if (r.activeProfileId === id) {
+            window.alert(i18nMessage('cannot_delete_active_profile', 'Cannot delete the active profile. Switch to another profile first.'));
+            return;
+        }
+        if (!window.confirm(i18nMessage('delete_profile_confirm', 'Delete this profile? This cannot be undone.'))) return;
+        deleteProfile(id, function() {
+            reloadAndRender(null);
+        });
     });
 }
 

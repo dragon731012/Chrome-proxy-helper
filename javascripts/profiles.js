@@ -202,23 +202,11 @@ function renameProfile(id, newName, cb) {
 }
 
 function deleteProfile(id, cb) {
-    chrome.storage.local.get(['profiles', 'activeProfileId'], function(r) {
+    chrome.storage.local.get(['profiles'], function(r) {
         var profiles = r.profiles || {};
-        var ids = Object.keys(profiles);
-        if (ids.length <= 1 || !profiles[id]) {
-            cb && cb(r.activeProfileId || null);
-            return;
-        }
-        var wasActive = r.activeProfileId === id;
+        if (!profiles[id]) { cb && cb(); return; }
         delete profiles[id];
-        var newActive = wasActive ? Object.keys(profiles)[0] : r.activeProfileId;
-        chrome.storage.local.set({ profiles: profiles, activeProfileId: newActive }, function() {
-            if (wasActive) {
-                applyProfile(newActive, function() { cb && cb(newActive); });
-            } else {
-                cb && cb(newActive);
-            }
-        });
+        chrome.storage.local.set({ profiles: profiles }, function() { cb && cb(); });
     });
 }
 

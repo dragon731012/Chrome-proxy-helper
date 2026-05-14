@@ -167,8 +167,8 @@
     "delete_profile_confirm": {
         "message": "このプロファイルを削除しますか？この操作は元に戻せません。"
     },
-    "cannot_delete_last_profile": {
-        "message": "少なくとも1つのプロファイルが必要です。"
+    "cannot_delete_active_profile": {
+        "message": "アクティブなプロファイルは削除できません。先にポップアップで別のプロファイルに切り替えてください。"
     },
     "profile_name_prompt": {
         "message": "プロファイル名:"
