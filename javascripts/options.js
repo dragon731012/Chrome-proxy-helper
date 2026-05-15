@@ -191,10 +191,6 @@ function readSingleFile(e) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    $('#diagnosis').click(function() {
-        chrome.tabs.create({ url: 'chrome://net-internals/#proxy' });
-    });
-
     $('#profile-select').on('change', onSelectProfile);
     $('#profile-new').on('click', onNewProfile);
     $('#profile-rename').on('click', onRenameProfile);
